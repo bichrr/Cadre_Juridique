@@ -329,7 +329,8 @@
       border-top: 1px solid #e8e8e8;
       gap: 1rem;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: space-between;
     }
 
     .btn-expand-terms {
@@ -342,14 +343,33 @@
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.3s ease;
-      width: 100%;
+      flex: 1;
     }
 
     .btn-expand-terms:hover {
       background: #e8e8e8;
     }
 
-    .btn-accept-terms {
+    .btn-accept-quick {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 12px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex: 1;
+    }
+
+    .btn-accept-quick:hover {
+      background: #218838;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+    }
+
+    .btn-accept-after-reading {
       background: #0a3622;
       color: white;
       border: none;
@@ -363,17 +383,10 @@
       display: none;
     }
 
-    .btn-accept-terms:hover:not(:disabled) {
+    .btn-accept-after-reading:hover {
       background: #135d38;
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(10, 54, 34, 0.3);
-    }
-
-    .btn-accept-terms:disabled {
-      background: #cccccc;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
     }
 
     /* Responsive Design */
@@ -400,6 +413,10 @@
 
       .stat-number {
         font-size: 2rem;
+      }
+
+      .modal-footer {
+        flex-direction: column;
       }
     }
   </style>
@@ -599,9 +616,13 @@
           </div>
         </div>
 
-        <div class="modal-footer">
+        <div class="modal-footer" id="modalFooterInitial">
+          <button type="button" class="btn-accept-quick" id="acceptQuickBtn">J'accepte</button>
           <button type="button" class="btn-expand-terms" id="expandTermsBtn">📖 Lire les termes complets</button>
-          <button type="button" class="btn-accept-terms" id="acceptTermsBtn">✓ J'accepte les termes</button>
+        </div>
+
+        <div class="modal-footer" id="modalFooterAfterReading" style="display: none;">
+          <button type="button" class="btn-accept-after-reading" id="acceptAfterReadingBtn">✓ J'accepte les termes</button>
         </div>
       </div>
     </div>
@@ -642,40 +663,51 @@
     // Track if user expanded the terms
     let hasReadTerms = false;
 
+    // Accept WITHOUT reading (quick accept button)
+    document.getElementById('acceptQuickBtn').addEventListener('click', function() {
+      console.log("⚠️ User accepted WITHOUT reading.");
+      setCookie("acceptedWithoutReading", "true", 7);
+      setCookie("termsAccepted", "true", 7);
+      window.location.href = "lois.html";
+    });
+
     // Expand/Collapse terms functionality
     document.getElementById('expandTermsBtn').addEventListener('click', function() {
       const preview = document.getElementById('termsPreview');
       const full = document.getElementById('termsFull');
-      const acceptBtn = document.getElementById('acceptTermsBtn');
+      const footerInitial = document.getElementById('modalFooterInitial');
+      const footerAfterReading = document.getElementById('modalFooterAfterReading');
       const expandBtn = this;
 
       if (full.style.display === 'none' || full.style.display === '') {
-        // Expand the terms
+        // Expand the terms - user is now reading
         preview.style.display = 'none';
         full.style.display = 'block';
         expandBtn.textContent = '📕 Réduire les termes';
-        acceptBtn.style.display = 'block';
+        
+        // Switch footer to show "accept after reading" button
+        footerInitial.style.display = 'none';
+        footerAfterReading.style.display = 'flex';
+        
         hasReadTerms = true;
-        console.log("✅ User expanded terms");
+        console.log("✅ User expanded terms to read them");
       } else {
         // Collapse the terms
         preview.style.display = 'block';
         full.style.display = 'none';
         expandBtn.textContent = '📖 Lire les termes complets';
+        
+        // Switch back to initial footer
+        footerInitial.style.display = 'flex';
+        footerAfterReading.style.display = 'none';
       }
     });
 
-    // Accept terms button
-    document.getElementById('acceptTermsBtn').addEventListener('click', function() {
-      if (hasReadTerms) {
-        console.log("✅ User accepted AFTER reading.");
-        setCookie("acceptedWithoutReading", "false", 7);
-        setCookie("termsAccepted", "true", 7);
-      } else {
-        console.log("⚠️ User accepted WITHOUT expanding (shouldn't happen).");
-        setCookie("acceptedWithoutReading", "true", 7);
-        setCookie("termsAccepted", "true", 7);
-      }
+    // Accept AFTER reading the full terms
+    document.getElementById('acceptAfterReadingBtn').addEventListener('click', function() {
+      console.log("✅ User accepted AFTER reading the full terms.");
+      setCookie("acceptedWithoutReading", "false", 7);
+      setCookie("termsAccepted", "true", 7);
       window.location.href = "lois.html";
     });
 
@@ -692,7 +724,8 @@
         document.getElementById('termsPreview').style.display = 'block';
         document.getElementById('termsFull').style.display = 'none';
         document.getElementById('expandTermsBtn').textContent = '📖 Lire les termes complets';
-        document.getElementById('acceptTermsBtn').style.display = 'none';
+        document.getElementById('modalFooterInitial').style.display = 'flex';
+        document.getElementById('modalFooterAfterReading').style.display = 'none';
         hasReadTerms = false;
         
         const modal = new bootstrap.Modal(document.getElementById('termsModal'));
@@ -705,7 +738,7 @@
     document.getElementById("ctaBtn").addEventListener("click", handleCTAClick);
 
     // Debug: Show current cookies
-    console.log("🔍 Cookies on accueil.html:", document.cookie);
+    console.log("🔍 Cookies on page load:", document.cookie);
   </script>
 </body>
 </html>

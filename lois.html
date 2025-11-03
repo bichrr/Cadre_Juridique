@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Législation Tunisienne – Contrats & Échanges Électroniques</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f5f7fa;
+      color: #222;
+      line-height: 1.7;
+      padding-top: 80px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0a3622;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .law-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s ease;
+    }
+
+    .law-card:hover { transform: translateY(-3px); }
+
+    .law-card h4 {
+      color: #135d38;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .navbar {
+      background-color: #135d38 !important;
+    }
+
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #ffcc00 !important;
+    }
+
+    /* Alert */
+    .alert-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.55);
+      color: white;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 9999;
+      padding: 30px;
+      flex-direction: column;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .alert-box {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 500px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      animation: shake 0.4s ease-in-out;
+    }
+
+    .alert-box h2 {
+      font-size: 1.8rem;
+      color: #ffcc00;
+      margin-bottom: 1rem;
+    }
+
+    .alert-box p {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .close-btn {
+      background: #ffcc00;
+      border: none;
+      color: #222;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .close-btn:hover { background: #ffd84d; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      50% { transform: translateX(6px); }
+      75% { transform: translateX(-6px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="lois.html">Droit Numérique TN</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="lois.html">Lois</a></li>
+          <li class="nav-item"><a class="nav-link" href="contrat-electronique.html">Contrat Électronique</a></li>
+          <li class="nav-item"><a class="nav-link" href="smart-contract.html">Smart Contract</a></li>
+          <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <h1>Cadre Juridique Tunisien des Contrats Électroniques</h1>
+
+  <div class="container">
+    <div class="law-card">
+      <h4>Loi n°2000-83 du 9 août 2000 – Échanges et Commerce Électroniques</h4>
+      <p>
+        Base légale du commerce électronique en Tunisie.  
+        Elle établit que les contrats électroniques sont soumis aux mêmes conditions
+        de validité que les contrats écrits traditionnels : consentement, capacité, objet et cause.
+      </p>
+      <p><strong>Article 1 :</strong> Le régime des contrats écrits s’applique aux contrats électroniques.</p>
+      <p><strong>Article 2 :</strong> Définit les notions d’échange électronique, de commerce électronique et de certification électronique.</p>
+      <p><strong>Article 28 :</strong> Les certificats électroniques délivrés par des autorités agréées ont la même valeur juridique que les signatures manuscrites.</p>
+      <p><strong>Article 50 :</strong> Sanctions prévues en cas de fraude ou d’abus dans les opérations électroniques.</p>
+    </div>
+
+    <div class="law-card">
+      <h4>Code des Obligations et des Contrats (COC)</h4>
+      <p>
+        Le COC demeure le socle du droit contractuel tunisien.  
+        Les principes généraux qu’il énonce s’appliquent aussi aux contrats électroniques,
+        sauf dispositions spécifiques prévues par la Loi n°2000-83.
+      </p>
+      <p><strong>Article 2 :</strong> Conditions de validité : capacité, consentement, objet et cause.</p>
+      <p><strong>Article 23 :</strong> La convention est parfaite par le consentement mutuel des parties.</p>
+      <p><strong>Article 453 :</strong> Les documents électroniques peuvent constituer un écrit valable s’ils permettent d’identifier les parties et d’assurer la conservation de leur contenu.</p>
+    </div>
+  </div>
+
+  <!-- 🍪 Custom Alert -->
+  <div class="alert-overlay" id="alert">
+    <div class="alert-box">
+      <h2>🤖 Smart Contract activé !</h2>
+      <p>En cliquant sans lire, vous venez d’accepter de me payer un café virtuel ☕.</p>
+      <p>Votre âme numérique est désormais stockée sur la blockchain (ou presque 😅).</p>
+      <p><small>Astuce juridique : toujours lire les conditions avant d’accepter !</small></p>
+      <button class="close-btn" id="closeAlert">Fermer</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // --- Cookie Helpers ---
+    function setCookie(name, value, days) {
+      const d = new Date();
+      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+      const expires = "expires=" + d.toUTCString();
+      document.cookie = name + "=" + value + ";" + expires + ";path=/";
+      console.log(`Cookie set: ${name}=${value} (expires in ${days} days)`);
+    }
+
+    function getCookie(name) {
+      const cname = name + "=";
+      const decodedCookie = decodeURIComponent(document.cookie);
+      const ca = decodedCookie.split(';');
+      for (let c of ca) {
+        c = c.trim();
+        if (c.indexOf(cname) == 0) {
+          const value = c.substring(cname.length, c.length);
+          console.log(`Cookie found: ${name}=${value}`);
+          return value;
+        }
+      }
+      console.log(`Cookie not found: ${name}`);
+      return "";
+    }
+
+    // --- Main Logic ---
+    window.addEventListener("load", () => {
+      const alertBox = document.getElementById("alert");
+      const alertCookie = getCookie("alertShown");
+
+      if (!alertCookie) {
+        console.log("⚠️ First visit detected — showing alert.");
+        alertBox.style.display = "flex";
+      } else {
+        console.log("✅ Cookie found — not showing alert.");
+      }
+
+      document.getElementById("closeAlert").addEventListener("click", () => {
+        alertBox.style.display = "none";
+        console.log("🚪 Alert closed by user.");
+        setCookie("alertShown", "true", 7);
+      });
+    });
+  </script>
+</body>
+</html>

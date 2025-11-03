@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz – Droit Numérique TN</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f5f7fa;
+      color: #222;
+      padding-top: 80px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #135d38;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+
+    .quiz-container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .quiz-question {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #0a3622;
+    }
+
+    .option {
+      background: #e9f5ee;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      padding: 10px 15px;
+      margin: 8px 0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .option:hover {
+      background: #d9f0e3;
+    }
+
+    .option.selected {
+      border-color: #135d38;
+      background: #c5e8d0;
+    }
+
+    .btn-next, .btn-restart {
+      background: #135d38;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .btn-next:hover, .btn-restart:hover {
+      background: #0e482c;
+    }
+
+    .result {
+      text-align: center;
+      display: none;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .score {
+      font-size: 1.5rem;
+      color: #135d38;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #135d38 !important;
+    }
+
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #ffcc00 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="lois.html">Droit Numérique TN</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="lois.html">Lois</a></li>
+          <li class="nav-item"><a class="nav-link" href="contrat-electronique.html">Contrat Électronique</a></li>
+          <li class="nav-item"><a class="nav-link" href="smart-contract.html">Smart Contract</a></li>
+          <li class="nav-item"><a class="nav-link active" href="quiz.html">Quiz</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 🧠 QUIZ SECTION -->
+  <div class="container">
+    <h1>Quiz – Droit Numérique & Smart Contracts</h1>
+    <div class="quiz-container">
+      <div id="quiz">
+        <p class="quiz-question" id="question"></p>
+        <div id="options" class="mt-3"></div>
+        <div class="d-flex justify-content-end mt-4">
+          <button class="btn-next" id="nextBtn">Suivant</button>
+        </div>
+      </div>
+      <div class="result" id="result">
+        <p class="score" id="score"></p>
+        <p id="message"></p>
+        <button class="btn-restart mt-3" id="restartBtn">Recommencer</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "Quelle loi encadre le commerce électronique en Tunisie ?",
+        options: [
+          "Loi n°2000-83 du 9 août 2000",
+          "Loi n°2010-45 sur le numérique",
+          "Code civil tunisien",
+          "Loi Pacte française"
+        ],
+        answer: 0
+      },
+      {
+        question: "Un contrat électronique est-il valide sans signature manuscrite ?",
+        options: [
+          "Non, il faut toujours une signature physique",
+          "Oui, si la signature électronique est reconnue légalement",
+          "Uniquement si les deux parties se connaissent",
+          "Seulement dans le commerce international"
+        ],
+        answer: 1
+      },
+      {
+        question: "Quel article du COC traite du consentement mutuel ?",
+        options: ["Article 23", "Article 50", "Article 100", "Article 2"],
+        answer: 0
+      },
+      {
+        question: "Les smart contracts sont considérés comme :",
+        options: [
+          "Des contrats sans valeur juridique",
+          "Une exécution automatisée d’un contrat classique",
+          "Des programmes autonomes sans contrôle humain",
+          "Une forme de contrat papier"
+        ],
+        answer: 1
+      },
+      {
+        question: "Quelle loi protège les données personnelles en Tunisie ?",
+        options: [
+          "Loi n°2004-63 du 27 juillet 2004",
+          "Loi n°2016-15 sur la cybersécurité",
+          "Loi sur la liberté d’information",
+          "Règlement RGPD européen"
+        ],
+        answer: 0
+      },
+      {
+        question: "Quelle condition n’est PAS nécessaire pour un contrat valide ?",
+        options: [
+          "Consentement",
+          "Objet",
+          "Capacité",
+          "Signature manuscrite"
+        ],
+        answer: 3
+      },
+      {
+        question: "Quelle technologie permet la mise en œuvre des smart contracts ?",
+        options: [
+          "L’intelligence artificielle",
+          "La blockchain",
+          "Le cloud computing",
+          "Les bases de données SQL"
+        ],
+        answer: 1
+      },
+      {
+        question: "La Tunisie s’inspire notamment du DLT Act de quel pays ?",
+        options: ["Suisse", "France", "USA", "Allemagne"],
+        answer: 0
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const nextBtn = document.getElementById("nextBtn");
+    const resultEl = document.getElementById("result");
+    const quizEl = document.getElementById("quiz");
+    const scoreEl = document.getElementById("score");
+    const messageEl = document.getElementById("message");
+    const restartBtn = document.getElementById("restartBtn");
+
+    function loadQuestion() {
+      const q = quizData[currentQuestion];
+      questionEl.textContent = q.question;
+      optionsEl.innerHTML = "";
+      q.options.forEach((option, index) => {
+        const div = document.createElement("div");
+        div.classList.add("option");
+        div.textContent = option;
+        div.addEventListener("click", () => selectOption(div, index));
+        optionsEl.appendChild(div);
+      });
+    }
+
+    function selectOption(div, index) {
+      document.querySelectorAll(".option").forEach(o => o.classList.remove("selected"));
+      div.classList.add("selected");
+      div.dataset.selected = index;
+    }
+
+    nextBtn.addEventListener("click", () => {
+      const selected = document.querySelector(".option.selected");
+      if (!selected) return alert("Sélectionnez une réponse !");
+      const answerIndex = parseInt(selected.dataset.selected);
+      if (answerIndex === quizData[currentQuestion].answer) score++;
+      currentQuestion++;
+      if (currentQuestion < quizData.length) {
+        loadQuestion();
+      } else {
+        showResult();
+      }
+    });
+
+    function showResult() {
+      quizEl.style.display = "none";
+      resultEl.style.display = "block";
+      scoreEl.textContent = `Votre score : ${score} / ${quizData.length}`;
+      if (score >= quizData.length * 0.8) {
+        messageEl.textContent = "🌟 Excellent travail ! Vous maîtrisez le sujet.";
+      } else if (score >= quizData.length * 0.5) {
+        messageEl.textContent = "🙂 Pas mal ! Revoyez quelques notions.";
+      } else {
+        messageEl.textContent = "😅 Il est temps de relire les lois et contrats électroniques !";
+      }
+    }
+
+    restartBtn.addEventListener("click", () => {
+      score = 0;
+      currentQuestion = 0;
+      resultEl.style.display = "none";
+      quizEl.style.display = "block";
+      loadQuestion();
+    });
+
+    // Init
+    loadQuestion();
+  </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Contract – Droit Tunisien & Comparé</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f5f7fa;
+      color: #222;
+      line-height: 1.7;
+      padding-top: 80px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0a3622;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .law-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s ease;
+    }
+
+    .law-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .law-card h4 {
+      color: #135d38;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #135d38 !important;
+    }
+
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #ffcc00 !important;
+    }
+
+    
+
+    .close-btn {
+      background: #ffcc00;
+      border: none;
+      color: #222;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: #ffd84d;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      50% { transform: translateX(6px); }
+      75% { transform: translateX(-6px); }
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 1rem; padding-top: 90px; }
+      .law-card { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="lois.html">Droit Numérique TN</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="lois.html">Lois</a></li>
+          <li class="nav-item"><a class="nav-link" href="contrat-electronique.html">Contrat Électronique</a></li>
+          <li class="nav-item"><a class="nav-link active" href="smart-contract.html">Smart Contract</a></li>
+          <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <h1>Le Smart Contract – Droit Comparé et Perspective Tunisienne</h1>
+
+  <div class="container">
+    <div class="law-card">
+      <h4>Définition et Origine</h4>
+      <p>
+        Le <strong>Smart Contract</strong> (ou contrat intelligent) est un programme informatique
+        qui exécute automatiquement les termes d’un contrat lorsque les conditions prédéfinies sont remplies.
+      </p>
+      <p>
+        Il a été popularisé par <strong>Nick Szabo</strong> dans les années 1990,
+        puis concrétisé par la technologie <strong>Blockchain</strong> (notamment Ethereum),
+        permettant une exécution décentralisée, transparente et infalsifiable.
+      </p>
+    </div>
+
+    <div class="law-card">
+      <h4>En Tunisie 🇹🇳</h4>
+      <p>
+        À ce jour, aucun texte spécifique ne régit les <em>smart contracts</em> en Tunisie.  
+        Cependant, leur reconnaissance implicite découle du cadre du
+        <strong>Code des Obligations et des Contrats</strong> (COC) et de la <strong>Loi n°2000-83</strong> sur le commerce électronique.
+      </p>
+      <p>
+        En pratique, un <em>smart contract</em> peut être vu comme une <strong>exécution automatique</strong>
+        d’un contrat classique préalablement conclu entre les parties,
+        pour autant que les conditions de validité (consentement, capacité, objet, cause) soient remplies.
+      </p>
+      <p>
+        La <strong>stratégie nationale de transformation numérique</strong> envisage l’intégration
+        future des blockchains dans les processus administratifs et contractuels.
+      </p>
+    </div>
+
+    <div class="law-card">
+      <h4>En Suisse 🇨🇭</h4>
+      <p>
+        La Suisse, pionnière en matière de régulation technologique, a introduit en 2021 le
+        <strong>DLT Act (Distributed Ledger Technology Act)</strong> qui reconnaît la validité
+        juridique des registres distribués et des jetons numériques.
+      </p>
+      <p>
+        Bien qu’aucune définition légale stricte du smart contract n’existe,
+        le droit suisse admet sa <strong>valeur contractuelle</strong> dès lors que
+        la volonté des parties peut être démontrée et que les conditions classiques du contrat sont respectées.
+      </p>
+    </div>
+
+    <div class="law-card">
+      <h4>En France 🇫🇷</h4>
+      <p>
+        La <strong>Loi Pacte (2019)</strong> reconnaît la blockchain comme un support légal
+        pour l’enregistrement et la transmission d’actifs financiers, sans définir expressément
+        le <em>smart contract</em>.
+      </p>
+      <p>
+        Le droit français considère donc le <strong>smart contract comme un outil d’exécution</strong>
+        et non comme un contrat autonome.  
+        Il reste soumis aux règles classiques du Code civil relatives aux obligations contractuelles.
+      </p>
+    </div>
+
+    <div class="law-card">
+      <h4>Avantages et Défis Juridiques</h4>
+      <ul>
+        <li><strong>+ Automatisation</strong> : exécution instantanée, sans intermédiaire.</li>
+        <li><strong>+ Transparence</strong> : code et transactions traçables sur la blockchain.</li>
+        <li><strong>+ Sécurité</strong> : infalsifiable et résistant à la fraude.</li>
+        <li><strong>- Rigidité</strong> : difficile de modifier un contrat après déploiement.</li>
+        <li><strong>- Problème d’interprétation</strong> : le code ne reflète pas toujours l’intention juridique exacte.</li>
+        <li><strong>- Absence de cadre légal clair</strong> en Tunisie, ce qui complique sa reconnaissance judiciaire.</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ 
+</body>
+</html>

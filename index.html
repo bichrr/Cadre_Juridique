@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conditions d’utilisation</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Inter", "Segoe UI", sans-serif;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      padding: 2rem;
+      width: 90%;
+      max-width: 380px;
+    }
+
+    .btn {
+      border-radius: 10px;
+      font-weight: 500;
+    }
+
+    .modal-content {
+      border-radius: 15px;
+      background-color: #ffffffee;
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-body {
+      max-height: 65vh;
+      overflow-y: auto;
+      font-size: 0.95rem;
+    }
+
+    .modal-body::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+      background-color: #aaa;
+      border-radius: 4px;
+    }
+
+    strong {
+      color: #1a237e;
+    }
+
+    .modal-title {
+      color: #0d47a1;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h4 class="mb-3 fw-semibold">Acceptez-vous les conditions ?</h4>
+    <div class="d-flex justify-content-center gap-3 mt-3">
+      <button class="btn btn-success px-4" onclick="acceptTerms()">J’accepte</button>
+      <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#termsModal">Lire</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-semibold" id="termsModalLabel">Conditions Générales d’Utilisation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body text-start">
+
+  <p><strong>Article 1 — Objet</strong><br>
+  Les présentes conditions définissent les modalités d'accès au site et les règles applicables à la simulation pédagogique proposée. Elles n'ont qu'une valeur informative et ne créent pas d'obligations juridiques réelles entre les parties.</p>
+
+  <p><strong>Article 2 — Définitions</strong><br>
+  Pour l'application des présentes : «Utilisateur» désigne toute personne accédant au site ; «Simulateur» désigne l'outil technique présent sur ce site illustrant le mécanisme des smart contracts ; «Contenu» désigne les textes, références et documents affichés sur le site.</p>
+
+  <p><strong>Article 3 — Formation du consentement</strong><br>
+  Conformément à l'article 23 du Code des Obligations et des Contrats (Tunisie), le contrat résulte d'une rencontre d'une offre et d'une acceptation. Le bouton «J’accepte» matérialise, dans la simulation, une manifestation de volonté ; dans un contexte juridique réel, la validité du consentement doit être appréciée au cas par cas.</p>
+
+  <p><strong>Article 4 — Capacité</strong><br>
+  L'utilisateur déclare avoir la capacité juridique requise pour utiliser le site. En cas d'absence de capacité (mineur, incapacité légale), toute prétendue adhésion serait susceptible d'être annulée selon les règles du droit tunisien.</p>
+
+  <p><strong>Article 5 — Objet et exécution</strong><br>
+  Le simulateur illustre l'exécution automatique d'obligations en fonction de conditions prédéterminées. Il ne constitue pas une mise en œuvre d'obligations de droit réel ; la matérialisation d'effets juridiques nécessite, en droit, des éléments plus exigeants (prestation, consentement éclairé, identité des parties).</p>
+
+  <p><strong>Article 6 — Effet obligatoire</strong><br>
+  Les conventions légalement formées tiennent lieu de loi entre les parties. Pour être opposables, les conventions doivent satisfaire aux conditions de validité (capacité, consentement, objet, cause) énoncées dans le Code des Obligations et des Contrats.</p>
+
+ <p><strong>Article 7 bis — Obligation morale de café</strong><br>
+Tout utilisateur reconnaît l’importance de la pause-café pour le bon fonctionnement du groupe. En conséquence, chaque acceptation emporte une obligation morale de contribuer à la prochaine tournée de café ou de thé, selon disponibilité des ressources énergétiques du local.</p>
+
+  <p><strong>Article 8 — Données personnelles</strong><br>
+  Le fonctionnement de cette démonstration n'implique pas le traitement systématique de données personnelles. Si des données venaient à être collectées à des fins pédagogiques, elles seraient traitées conformément aux principes applicables en matière de protection des données à caractère personnel et supprimées après usage.</p>
+
+  <p><strong>Article 9 bis — Consentement implicite à la bonne humeur</strong><br>
+L’acceptation des présentes vaut adhésion à un principe général de bonne humeur et de courtoisie. Le non-respect répété de cette clause peut entraîner une résiliation symbolique du contrat moral d’équipe.</p>
+
+  <p><strong>Article 10 — Force majeure</strong><br>
+  Aucune partie ne sera tenue responsable des manquements résultant d'un cas de force majeure au sens du droit applicable (événements imprévisibles, irrésistibles et extérieurs). Les conséquences éventuelles sont réglées conformément aux principes du droit tunisien.</p>
+
+  <p><strong>Article 11 bis — Cession de droits pédagogiques</strong><br>
+En cochant « J’accepte », l’utilisateur autorise temporairement l’enseignant à utiliser son étonnement comme illustration pratique de l’importance de lire les conditions générales avant de valider un contrat.</p>
+
+  <p><strong>Article 12 — Dispositions finales</strong><br>
+  Toute question liée à l'interprétation ou à l'application pratique des notions présentées doit être adressée à un juriste qualifié. Les présentes conditions peuvent être mises à jour pour tenir compte des évolutions légales et techniques ; l'utilisateur est invité à consulter périodiquement la version en ligne.</p>
+
+</div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-success" onclick="acceptTerms()">J’accepte</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function acceptTerms() {
+      window.location.href = "lois.html";
+    }
+  </script>
+</body>
+</html>

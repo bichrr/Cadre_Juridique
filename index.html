@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Conditions d'utilisation</title>
+  <title>Conditions d’utilisation</title>
 
+  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
@@ -67,7 +68,7 @@
   <div class="card">
     <h4 class="mb-3 fw-semibold">Acceptez-vous les conditions ?</h4>
     <div class="d-flex justify-content-center gap-3 mt-3">
-      <button class="btn btn-success px-4" onclick="acceptWithoutReading()">J'accepte</button>
+      <button class="btn btn-success px-4" onclick="acceptTerms()">J’accepte</button>
       <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#termsModal">Lire</button>
     </div>
   </div>
@@ -77,84 +78,63 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fw-semibold" id="termsModalLabel">Conditions Générales d'Utilisation</h5>
+          <h5 class="modal-title fw-semibold" id="termsModalLabel">Conditions Générales d’Utilisation</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
         </div>
         <div class="modal-body text-start">
 
-          <p><strong>Article 1 — Objet</strong><br>
-          Les présentes conditions définissent les modalités d'accès au site et les règles applicables à la simulation pédagogique proposée. Elles n'ont qu'une valeur informative et ne créent pas d'obligations juridiques réelles entre les parties.</p>
+  <p><strong>Article 1 — Objet</strong><br>
+  Les présentes conditions définissent les modalités d'accès au site et les règles applicables à la simulation pédagogique proposée. Elles n'ont qu'une valeur informative et ne créent pas d'obligations juridiques réelles entre les parties.</p>
 
-          <p><strong>Article 2 — Définitions</strong><br>
-          Pour l'application des présentes : «Utilisateur» désigne toute personne accédant au site ; «Simulateur» désigne l'outil technique présent sur ce site illustrant le mécanisme des smart contracts ; «Contenu» désigne les textes, références et documents affichés sur le site.</p>
+  <p><strong>Article 2 — Définitions</strong><br>
+  Pour l'application des présentes : «Utilisateur» désigne toute personne accédant au site ; «Simulateur» désigne l'outil technique présent sur ce site illustrant le mécanisme des smart contracts ; «Contenu» désigne les textes, références et documents affichés sur le site.</p>
 
-          <p><strong>Article 3 — Formation du consentement</strong><br>
-          Conformément à l'article 23 du Code des Obligations et des Contrats (Tunisie), le contrat résulte d'une rencontre d'une offre et d'une acceptation. Le bouton «J'accepte» matérialise, dans la simulation, une manifestation de volonté ; dans un contexte juridique réel, la validité du consentement doit être appréciée au cas par cas.</p>
+  <p><strong>Article 3 — Formation du consentement</strong><br>
+  Conformément à l'article 23 du Code des Obligations et des Contrats (Tunisie), le contrat résulte d'une rencontre d'une offre et d'une acceptation. Le bouton «J’accepte» matérialise, dans la simulation, une manifestation de volonté ; dans un contexte juridique réel, la validité du consentement doit être appréciée au cas par cas.</p>
 
-          <p><strong>Article 4 — Capacité</strong><br>
-          L'utilisateur déclare avoir la capacité juridique requise pour utiliser le site. En cas d'absence de capacité (mineur, incapacité légale), toute prétendue adhésion serait susceptible d'être annulée selon les règles du droit tunisien.</p>
+  <p><strong>Article 4 — Capacité</strong><br>
+  L'utilisateur déclare avoir la capacité juridique requise pour utiliser le site. En cas d'absence de capacité (mineur, incapacité légale), toute prétendue adhésion serait susceptible d'être annulée selon les règles du droit tunisien.</p>
 
-          <p><strong>Article 5 — Objet et exécution</strong><br>
-          Le simulateur illustre l'exécution automatique d'obligations en fonction de conditions prédéterminées. Il ne constitue pas une mise en œuvre d'obligations de droit réel ; la matérialisation d'effets juridiques nécessite, en droit, des éléments plus exigeants (prestation, consentement éclairé, identité des parties).</p>
+  <p><strong>Article 5 — Objet et exécution</strong><br>
+  Le simulateur illustre l'exécution automatique d'obligations en fonction de conditions prédéterminées. Il ne constitue pas une mise en œuvre d'obligations de droit réel ; la matérialisation d'effets juridiques nécessite, en droit, des éléments plus exigeants (prestation, consentement éclairé, identité des parties).</p>
 
-          <p><strong>Article 6 — Effet obligatoire</strong><br>
-          Les conventions légalement formées tiennent lieu de loi entre les parties. Pour être opposables, les conventions doivent satisfaire aux conditions de validité (capacité, consentement, objet, cause) énoncées dans le Code des Obligations et des Contrats.</p>
+  <p><strong>Article 6 — Effet obligatoire</strong><br>
+  Les conventions légalement formées tiennent lieu de loi entre les parties. Pour être opposables, les conventions doivent satisfaire aux conditions de validité (capacité, consentement, objet, cause) énoncées dans le Code des Obligations et des Contrats.</p>
 
-          <p><strong>Article 7 bis — Obligation morale de café</strong><br>
-          Tout utilisateur reconnaît l'importance de la pause-café pour le bon fonctionnement du groupe. En conséquence, chaque acceptation emporte une obligation morale de contribuer à la prochaine tournée de café ou de thé, selon disponibilité des ressources énergétiques du local.</p>
+ <p><strong>Article 7 bis — Obligation morale de café</strong><br>
+Tout utilisateur reconnaît l’importance de la pause-café pour le bon fonctionnement du groupe. En conséquence, chaque acceptation emporte une obligation morale de contribuer à la prochaine tournée de café ou de thé, selon disponibilité des ressources énergétiques du local.</p>
 
-          <p><strong>Article 8 — Données personnelles</strong><br>
-          Le fonctionnement de cette démonstration n'implique pas le traitement systématique de données personnelles. Si des données venaient à être collectées à des fins pédagogiques, elles seraient traitées conformément aux principes applicables en matière de protection des données à caractère personnel et supprimées après usage.</p>
+  <p><strong>Article 8 — Données personnelles</strong><br>
+  Le fonctionnement de cette démonstration n'implique pas le traitement systématique de données personnelles. Si des données venaient à être collectées à des fins pédagogiques, elles seraient traitées conformément aux principes applicables en matière de protection des données à caractère personnel et supprimées après usage.</p>
 
-          <p><strong>Article 9 bis — Consentement implicite à la bonne humeur</strong><br>
-          L'acceptation des présentes vaut adhésion à un principe général de bonne humeur et de courtoisie. Le non-respect répété de cette clause peut entraîner une résiliation symbolique du contrat moral d'équipe.</p>
+  <p><strong>Article 9 bis — Consentement implicite à la bonne humeur</strong><br>
+L’acceptation des présentes vaut adhésion à un principe général de bonne humeur et de courtoisie. Le non-respect répété de cette clause peut entraîner une résiliation symbolique du contrat moral d’équipe.</p>
 
-          <p><strong>Article 10 — Force majeure</strong><br>
-          Aucune partie ne sera tenue responsable des manquements résultant d'un cas de force majeure au sens du droit applicable (événements imprévisibles, irrésistibles et extérieurs). Les conséquences éventuelles sont réglées conformément aux principes du droit tunisien.</p>
+  <p><strong>Article 10 — Force majeure</strong><br>
+  Aucune partie ne sera tenue responsable des manquements résultant d'un cas de force majeure au sens du droit applicable (événements imprévisibles, irrésistibles et extérieurs). Les conséquences éventuelles sont réglées conformément aux principes du droit tunisien.</p>
 
-          <p><strong>Article 11 bis — Cession de droits pédagogiques</strong><br>
-          En cochant « J'accepte », l'utilisateur autorise temporairement l'enseignant à utiliser son étonnement comme illustration pratique de l'importance de lire les conditions générales avant de valider un contrat.</p>
+  <p><strong>Article 11 bis — Cession de droits pédagogiques</strong><br>
+En cochant « J’accepte », l’utilisateur autorise temporairement l’enseignant à utiliser son étonnement comme illustration pratique de l’importance de lire les conditions générales avant de valider un contrat.</p>
 
-          <p><strong>Article 12 — Dispositions finales</strong><br>
-          Toute question liée à l'interprétation ou à l'application pratique des notions présentées doit être adressée à un juriste qualifié. Les présentes conditions peuvent être mises à jour pour tenir compte des évolutions légales et techniques ; l'utilisateur est invité à consulter périodiquement la version en ligne.</p>
+  <p><strong>Article 12 — Dispositions finales</strong><br>
+  Toute question liée à l'interprétation ou à l'application pratique des notions présentées doit être adressée à un juriste qualifié. Les présentes conditions peuvent être mises à jour pour tenir compte des évolutions légales et techniques ; l'utilisateur est invité à consulter périodiquement la version en ligne.</p>
 
-        </div>
+</div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-          <button type="button" class="btn btn-success" onclick="acceptAfterReading()">J'accepte</button>
+          <button type="button" class="btn btn-success" onclick="acceptTerms()">J’accepte</button>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // ✅ Helper function to set cookies
-    function setCookie(name, value, days) {
-      const d = new Date();
-      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-      const cookie = `${name}=${value}; expires=${d.toUTCString()}; path=/; SameSite=Lax`;
-      document.cookie = cookie;
-      console.log(`🍪 Cookie set: ${cookie}`);
-    }
-
-    // ⚠️ User clicked "J'accepte" WITHOUT reading the terms
-    function acceptWithoutReading() {
-      console.log("⚠️ User accepted WITHOUT reading.");
-      setCookie("acceptedWithoutReading", "true", 7);
+    function acceptTerms() {
       window.location.href = "lois.html";
     }
-
-    // ✅ User clicked "J'accepte" AFTER reading the terms in the modal
-    function acceptAfterReading() {
-      console.log("✅ User accepted AFTER reading.");
-      setCookie("acceptedWithoutReading", "false", 7);
-      window.location.href = "lois.html";
-    }
-
-    // Debug: Show current cookies
-    console.log("🔍 Cookies on index.html:", document.cookie);
   </script>
 </body>
 </html>

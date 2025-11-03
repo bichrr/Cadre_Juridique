@@ -6,68 +6,196 @@
   <title>Contrat Électronique – Droit Tunisien</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: "Poppins", sans-serif;
-      background: #f5f7fa;
-      color: #222;
-      line-height: 1.7;
-      padding-top: 80px; /* spacing for navbar */
+      font-family: "Inter", "Segoe UI", -apple-system, sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    h1 {
-      text-align: center;
+    /* Professional Navbar */
+    .navbar {
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #0a3622 !important;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      color: #555 !important;
+      font-weight: 500;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #0a3622 !important;
+    }
+
+    .navbar-scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Page Header */
+    .page-header {
+      margin-top: 80px;
+      padding: 80px 0 60px;
+      background: linear-gradient(180deg, #f8fafb 0%, #ffffff 100%);
+      position: relative;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+    }
+
+    .page-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
       color: #0a3622;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+      text-align: center;
     }
 
-    h3 {
-      color: #135d38;
-      font-size: 1.2rem;
-      margin-top: 1.2rem;
-      font-weight: 600;
+    .page-header p {
+      font-size: 1.1rem;
+      color: #666;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Content Section */
+    .content-section {
+      padding: 60px 0 80px;
+      background: #ffffff;
     }
 
     .content-card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      transition: transform 0.2s ease;
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
     }
 
     .content-card:hover {
-      transform: translateY(-2px);
+      border-color: #0a3622;
+      box-shadow: 0 10px 40px rgba(10, 54, 34, 0.08);
+      transform: translateY(-5px);
     }
 
-    .navbar {
-      background-color: #135d38 !important;
+    .content-card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #0a3622;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.5px;
     }
 
-    .navbar-brand, .nav-link {
-      color: #fff !important;
-      font-weight: 500;
+    .content-card p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
     }
 
-    .nav-link:hover {
-      color: #ffcc00 !important;
+    .content-card p:last-child {
+      margin-bottom: 0;
     }
 
+    .content-card strong {
+      color: #0a3622;
+      font-weight: 600;
+    }
+
+    .content-card em {
+      color: #135d38;
+      font-style: italic;
+    }
+
+    /* Section Numbering */
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #0a3622, #135d38);
+      color: white;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-right: 0.8rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #0a3622;
+      color: white;
+      padding: 3rem 0 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
     @media (max-width: 768px) {
-      body { padding: 1rem; padding-top: 90px; }
-      .content-card { padding: 1rem; }
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .page-header p {
+        font-size: 1rem;
+      }
+
+      .content-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .content-card h3 {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ NAVBAR -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Droit Numérique TN</a>
+  <!-- Professional Navbar -->
+  <nav class="navbar navbar-expand-lg" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="accueil.html">Droit Numérique TN</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
@@ -80,74 +208,101 @@
     </div>
   </nav>
 
-  <div class="container">
-    <h1>Le Contrat Électronique en Tunisie</h1>
-
-    <div class="content-card">
-      <h3>1. Contexte et Définition</h3>
-      <p>
-        Le contrat électronique est une forme de contrat née avec l'avènement d'Internet et des technologies numériques, devenant un outil essentiel pour les transactions commerciales en ligne.
-      </p>
-      <p><strong>Définition (proposée) :</strong> Accord conclu entre deux parties par voie électronique, tel qu’un formulaire en ligne ou un échange d’e-mails.</p>
-      <p>
-        La <strong>loi tunisienne n° 2000-83 du 9 août 2000</strong> relative aux échanges et au commerce électroniques ne définit pas explicitement le contrat électronique, mais encadre le commerce et la certification électroniques.
-      </p>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Le Contrat Électronique</h1>
+      <p>Cadre juridique et applications pratiques en Tunisie</p>
     </div>
+  </section>
 
-    <div class="content-card">
-      <h3>2. Réglementation Internationale et Tunisienne</h3>
-      <p>
-        Au niveau international, la <strong>CNUDCI</strong> (Commission des Nations Unies pour le Droit Commercial International) a adopté en 1999 une convention facilitant l’usage des communications électroniques dans les transactions commerciales internationales.
-      </p>
-      <p>
-        La <strong>Tunisie</strong> a adhéré à cette convention en 2005, après la mise en place de la loi n°2000-83 du 9 août 2000 sur les échanges et le commerce électroniques.
-      </p>
-    </div>
+  <!-- Content Section -->
+  <section class="content-section">
+    <div class="container">
+      <div class="content-card">
+        <h3><span class="section-number">1</span>Contexte et Définition</h3>
+        <p>
+          Le contrat électronique est une forme de contrat née avec l'avènement d'Internet et des technologies numériques, devenant un outil essentiel pour les transactions commerciales en ligne.
+        </p>
+        <p><strong>Définition (proposée) :</strong> Accord conclu entre deux parties par voie électronique, tel qu'un formulaire en ligne ou un échange d'e-mails.</p>
+        <p>
+          La <strong>loi tunisienne n° 2000-83 du 9 août 2000</strong> relative aux échanges et au commerce électroniques ne définit pas explicitement le contrat électronique, mais encadre le commerce et la certification électroniques.
+        </p>
+      </div>
 
-    <div class="content-card">
-      <h3>3. Conditions de Conclusion et de Validité</h3>
-      <p>
-        Le contrat électronique doit respecter les conditions de fond prévues à l’<strong>Article 2 du Code des Obligations et des Contrats (COC)</strong> : capacité, consentement, objet certain et cause licite.
-      </p>
-      <p><strong>A. Conditions de fond :</strong>  
-        Le consentement se manifeste souvent par un clic (« click-wrap »), mais il doit être libre, éclairé et prouvé.
-      </p>
-      <p><strong>B. Condition spécifique – La Forme Électronique :</strong>  
-        L’<strong>Article 453 bis du COC</strong> définit le document électronique comme un écrit intelligible, archivé sur un support fiable et accessible.
-      </p>
-      <p>
-        La <strong>signature électronique</strong>, régie par l’<strong>Article 453 alinéa 2 du COC</strong>, remplace la signature manuscrite et garantit l’authenticité et l’intégrité du document via la cryptographie et les certificats électroniques.
-      </p>
-    </div>
+      <div class="content-card">
+        <h3><span class="section-number">2</span>Réglementation Internationale et Tunisienne</h3>
+        <p>
+          Au niveau international, la <strong>CNUDCI</strong> (Commission des Nations Unies pour le Droit Commercial International) a adopté en 1999 une convention facilitant l'usage des communications électroniques dans les transactions commerciales internationales.
+        </p>
+        <p>
+          La <strong>Tunisie</strong> a adhéré à cette convention en 2005, après la mise en place de la loi n°2000-83 du 9 août 2000 sur les échanges et le commerce électroniques.
+        </p>
+      </div>
 
-    <div class="content-card">
-      <h3>4. Force Probante du Contrat Électronique</h3>
-      <p>
-        L’<strong>Article 455 bis du COC</strong> reconnaît au document électronique la même valeur probante qu’un acte sous seing privé, à condition qu’il soit conservé de manière fiable et signé électroniquement.
-      </p>
-      <p>
-        L’<strong>Article 1 de la loi n°2000-83</strong> confirme que les contrats électroniques obéissent aux mêmes règles que les contrats écrits traditionnels.
-      </p>
-      <p>
-        L’<strong>Article 4</strong> impose la conservation des documents électroniques dans la forme originale de leur émission ou réception, garantissant leur fiabilité juridique.
-      </p>
-    </div>
+      <div class="content-card">
+        <h3><span class="section-number">3</span>Conditions de Conclusion et de Validité</h3>
+        <p>
+          Le contrat électronique doit respecter les conditions de fond prévues à l'<strong>Article 2 du Code des Obligations et des Contrats (COC)</strong> : capacité, consentement, objet certain et cause licite.
+        </p>
+        <p><strong>A. Conditions de fond :</strong>  
+          Le consentement se manifeste souvent par un clic (« click-wrap »), mais il doit être libre, éclairé et prouvé.
+        </p>
+        <p><strong>B. Condition spécifique – La Forme Électronique :</strong>  
+          L'<strong>Article 453 bis du COC</strong> définit le document électronique comme un écrit intelligible, archivé sur un support fiable et accessible.
+        </p>
+        <p>
+          La <strong>signature électronique</strong>, régie par l'<strong>Article 453 alinéa 2 du COC</strong>, remplace la signature manuscrite et garantit l'authenticité et l'intégrité du document via la cryptographie et les certificats électroniques.
+        </p>
+      </div>
 
-    <div class="content-card">
-      <h3>5. Expériences Récentes en Tunisie</h3>
-      <p>
-        La Tunisie reconnaît pleinement la validité juridique des contrats électroniques.  
-        Un exemple concret est la <strong>vente de véhicules particuliers</strong> via le <em>Portail du Citoyen</em>.
-      </p>
-      <p>
-        Cette plateforme permet l’authentification des parties et la signature électronique du contrat grâce à l’identité numérique.
-      </p>
-      <p>
-        Le ministère des technologies a précisé que ces contrats ont la même valeur juridique que les contrats papier, illustrant la stratégie nationale de transformation numérique et la modernisation administrative.
-      </p>
+      <div class="content-card">
+        <h3><span class="section-number">4</span>Force Probante du Contrat Électronique</h3>
+        <p>
+          L'<strong>Article 455 bis du COC</strong> reconnaît au document électronique la même valeur probante qu'un acte sous seing privé, à condition qu'il soit conservé de manière fiable et signé électroniquement.
+        </p>
+        <p>
+          L'<strong>Article 1 de la loi n°2000-83</strong> confirme que les contrats électroniques obéissent aux mêmes règles que les contrats écrits traditionnels.
+        </p>
+        <p>
+          L'<strong>Article 4</strong> impose la conservation des documents électroniques dans la forme originale de leur émission ou réception, garantissant leur fiabilité juridique.
+        </p>
+      </div>
+
+      <div class="content-card">
+        <h3><span class="section-number">5</span>Expériences Récentes en Tunisie</h3>
+        <p>
+          La Tunisie reconnaît pleinement la validité juridique des contrats électroniques.  
+          Un exemple concret est la <strong>vente de véhicules particuliers</strong> via le <em>Portail du Citoyen</em>.
+        </p>
+        <p>
+          Cette plateforme permet l'authentification des parties et la signature électronique du contrat grâce à l'identité numérique.
+        </p>
+        <p>
+          Le ministère des technologies a précisé que ces contrats ont la même valeur juridique que les contrats papier, illustrant la stratégie nationale de transformation numérique et la modernisation administrative.
+        </p>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Droit Numérique Tunisien. Plateforme éducative.</p>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('mainNav');
+      if (window.scrollY > 50) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    });
+  </script>
 </body>
 </html>

@@ -6,98 +6,204 @@
   <title>Smart Contract – Droit Tunisien & Comparé</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: "Poppins", sans-serif;
-      background: #f5f7fa;
-      color: #222;
-      line-height: 1.7;
-      padding-top: 80px;
+      font-family: "Inter", "Segoe UI", -apple-system, sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    h1 {
-      text-align: center;
-      color: #0a3622;
-      margin-bottom: 2rem;
-      font-weight: 600;
-    }
-
-    .law-card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      transition: transform 0.2s ease;
-    }
-
-    .law-card:hover {
-      transform: translateY(-3px);
-    }
-
-    .law-card h4 {
-      color: #135d38;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Navbar */
+    /* Professional Navbar */
     .navbar {
-      background-color: #135d38 !important;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
     }
 
-    .navbar-brand, .nav-link {
-      color: #fff !important;
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #0a3622 !important;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      color: #555 !important;
       font-weight: 500;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
     }
 
     .nav-link:hover, .nav-link.active {
-      color: #ffcc00 !important;
+      color: #0a3622 !important;
     }
 
-    
+    .navbar-scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
 
-    .close-btn {
-      background: #ffcc00;
-      border: none;
-      color: #222;
+    /* Page Header */
+    .page-header {
+      margin-top: 80px;
+      padding: 80px 0 60px;
+      background: linear-gradient(180deg, #f8fafb 0%, #ffffff 100%);
+      position: relative;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+    }
+
+    .page-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #0a3622;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+      text-align: center;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      color: #666;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Content Section */
+    .content-section {
+      padding: 60px 0 80px;
+      background: #ffffff;
+    }
+
+    .law-card {
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .law-card:hover {
+      border-color: #0a3622;
+      box-shadow: 0 10px 40px rgba(10, 54, 34, 0.08);
+      transform: translateY(-5px);
+    }
+
+    .law-card h4 {
+      font-size: 1.4rem;
       font-weight: 600;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: background 0.3s ease;
+      color: #0a3622;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.5px;
     }
 
-    .close-btn:hover {
-      background: #ffd84d;
+    .law-card p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .law-card p:last-child {
+      margin-bottom: 0;
     }
 
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-6px); }
-      50% { transform: translateX(6px); }
-      75% { transform: translateX(-6px); }
+    .law-card strong {
+      color: #0a3622;
+      font-weight: 600;
     }
 
+    .law-card em {
+      color: #135d38;
+      font-style: italic;
+    }
+
+    .law-card ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    .law-card li {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 0.8rem;
+    }
+
+    .law-card li strong {
+      color: #0a3622;
+    }
+
+    /* Country Flags */
+    .country-flag {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* Footer */
+    footer {
+      background: #0a3622;
+      color: white;
+      padding: 3rem 0 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
     @media (max-width: 768px) {
-      body { padding: 1rem; padding-top: 90px; }
-      .law-card { padding: 1rem; }
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .page-header p {
+        font-size: 1rem;
+      }
+
+      .law-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .law-card h4 {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ NAVBAR -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="lois.html">Droit Numérique TN</a>
+  <!-- Professional Navbar -->
+  <nav class="navbar navbar-expand-lg" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="accueil.html">Droit Numérique TN</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
@@ -110,83 +216,108 @@
     </div>
   </nav>
 
-  <h1>Le Smart Contract – Droit Comparé et Perspective Tunisienne</h1>
-
-  <div class="container">
-    <div class="law-card">
-      <h4>Définition et Origine</h4>
-      <p>
-        Le <strong>Smart Contract</strong> (ou contrat intelligent) est un programme informatique
-        qui exécute automatiquement les termes d’un contrat lorsque les conditions prédéfinies sont remplies.
-      </p>
-      <p>
-        Il a été popularisé par <strong>Nick Szabo</strong> dans les années 1990,
-        puis concrétisé par la technologie <strong>Blockchain</strong> (notamment Ethereum),
-        permettant une exécution décentralisée, transparente et infalsifiable.
-      </p>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Le Smart Contract</h1>
+      <p>Perspective tunisienne et analyse comparative du droit international</p>
     </div>
+  </section>
 
-    <div class="law-card">
-      <h4>En Tunisie 🇹🇳</h4>
-      <p>
-        À ce jour, aucun texte spécifique ne régit les <em>smart contracts</em> en Tunisie.  
-        Cependant, leur reconnaissance implicite découle du cadre du
-        <strong>Code des Obligations et des Contrats</strong> (COC) et de la <strong>Loi n°2000-83</strong> sur le commerce électronique.
-      </p>
-      <p>
-        En pratique, un <em>smart contract</em> peut être vu comme une <strong>exécution automatique</strong>
-        d’un contrat classique préalablement conclu entre les parties,
-        pour autant que les conditions de validité (consentement, capacité, objet, cause) soient remplies.
-      </p>
-      <p>
-        La <strong>stratégie nationale de transformation numérique</strong> envisage l’intégration
-        future des blockchains dans les processus administratifs et contractuels.
-      </p>
+  <!-- Content Section -->
+  <section class="content-section">
+    <div class="container">
+      <div class="law-card">
+        <h4>Définition et Origine</h4>
+        <p>
+          Le <strong>Smart Contract</strong> (ou contrat intelligent) est un programme informatique
+          qui exécute automatiquement les termes d'un contrat lorsque les conditions prédéfinies sont remplies.
+        </p>
+        <p>
+          Il a été popularisé par <strong>Nick Szabo</strong> dans les années 1990,
+          puis concrétisé par la technologie <strong>Blockchain</strong> (notamment Ethereum),
+          permettant une exécution décentralisée, transparente et infalsifiable.
+        </p>
+      </div>
+
+      <div class="law-card">
+        <h4><span class="country-flag">🇹🇳</span>En Tunisie</h4>
+        <p>
+          À ce jour, aucun texte spécifique ne régit les <em>smart contracts</em> en Tunisie.  
+          Cependant, leur reconnaissance implicite découle du cadre du
+          <strong>Code des Obligations et des Contrats</strong> (COC) et de la <strong>Loi n°2000-83</strong> sur le commerce électronique.
+        </p>
+        <p>
+          En pratique, un <em>smart contract</em> peut être vu comme une <strong>exécution automatique</strong>
+          d'un contrat classique préalablement conclu entre les parties,
+          pour autant que les conditions de validité (consentement, capacité, objet, cause) soient remplies.
+        </p>
+        <p>
+          La <strong>stratégie nationale de transformation numérique</strong> envisage l'intégration
+          future des blockchains dans les processus administratifs et contractuels.
+        </p>
+      </div>
+
+      <div class="law-card">
+        <h4><span class="country-flag">🇨🇭</span>En Suisse</h4>
+        <p>
+          La Suisse, pionnière en matière de régulation technologique, a introduit en 2021 le
+          <strong>DLT Act (Distributed Ledger Technology Act)</strong> qui reconnaît la validité
+          juridique des registres distribués et des jetons numériques.
+        </p>
+        <p>
+          Bien qu'aucune définition légale stricte du smart contract n'existe,
+          le droit suisse admet sa <strong>valeur contractuelle</strong> dès lors que
+          la volonté des parties peut être démontrée et que les conditions classiques du contrat sont respectées.
+        </p>
+      </div>
+
+      <div class="law-card">
+        <h4><span class="country-flag">🇫🇷</span>En France</h4>
+        <p>
+          La <strong>Loi Pacte (2019)</strong> reconnaît la blockchain comme un support légal
+          pour l'enregistrement et la transmission d'actifs financiers, sans définir expressément
+          le <em>smart contract</em>.
+        </p>
+        <p>
+          Le droit français considère donc le <strong>smart contract comme un outil d'exécution</strong>
+          et non comme un contrat autonome.  
+          Il reste soumis aux règles classiques du Code civil relatives aux obligations contractuelles.
+        </p>
+      </div>
+
+      <div class="law-card">
+        <h4>Avantages et Défis Juridiques</h4>
+        <ul>
+          <li><strong>+ Automatisation</strong> : exécution instantanée, sans intermédiaire.</li>
+          <li><strong>+ Transparence</strong> : code et transactions traçables sur la blockchain.</li>
+          <li><strong>+ Sécurité</strong> : infalsifiable et résistant à la fraude.</li>
+          <li><strong>− Rigidité</strong> : difficile de modifier un contrat après déploiement.</li>
+          <li><strong>− Problème d'interprétation</strong> : le code ne reflète pas toujours l'intention juridique exacte.</li>
+          <li><strong>− Absence de cadre légal clair</strong> en Tunisie, ce qui complique sa reconnaissance judiciaire.</li>
+        </ul>
+      </div>
     </div>
+  </section>
 
-    <div class="law-card">
-      <h4>En Suisse 🇨🇭</h4>
-      <p>
-        La Suisse, pionnière en matière de régulation technologique, a introduit en 2021 le
-        <strong>DLT Act (Distributed Ledger Technology Act)</strong> qui reconnaît la validité
-        juridique des registres distribués et des jetons numériques.
-      </p>
-      <p>
-        Bien qu’aucune définition légale stricte du smart contract n’existe,
-        le droit suisse admet sa <strong>valeur contractuelle</strong> dès lors que
-        la volonté des parties peut être démontrée et que les conditions classiques du contrat sont respectées.
-      </p>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Droit Numérique Tunisien. Plateforme éducative.</p>
     </div>
-
-    <div class="law-card">
-      <h4>En France 🇫🇷</h4>
-      <p>
-        La <strong>Loi Pacte (2019)</strong> reconnaît la blockchain comme un support légal
-        pour l’enregistrement et la transmission d’actifs financiers, sans définir expressément
-        le <em>smart contract</em>.
-      </p>
-      <p>
-        Le droit français considère donc le <strong>smart contract comme un outil d’exécution</strong>
-        et non comme un contrat autonome.  
-        Il reste soumis aux règles classiques du Code civil relatives aux obligations contractuelles.
-      </p>
-    </div>
-
-    <div class="law-card">
-      <h4>Avantages et Défis Juridiques</h4>
-      <ul>
-        <li><strong>+ Automatisation</strong> : exécution instantanée, sans intermédiaire.</li>
-        <li><strong>+ Transparence</strong> : code et transactions traçables sur la blockchain.</li>
-        <li><strong>+ Sécurité</strong> : infalsifiable et résistant à la fraude.</li>
-        <li><strong>- Rigidité</strong> : difficile de modifier un contrat après déploiement.</li>
-        <li><strong>- Problème d’interprétation</strong> : le code ne reflète pas toujours l’intention juridique exacte.</li>
-        <li><strong>- Absence de cadre légal clair</strong> en Tunisie, ce qui complique sa reconnaissance judiciaire.</li>
-      </ul>
-    </div>
-  </div>
-
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
- 
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('mainNav');
+      if (window.scrollY > 50) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    });
+  </script>
 </body>
 </html>

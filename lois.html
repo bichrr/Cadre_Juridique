@@ -414,13 +414,13 @@
       const alertBox = document.getElementById("alertBox");
 
       if (acceptedWithoutReading === "true" && alertAlreadySeen !== "true") {
-        console.log("💥 User accepted without reading & hasn't seen alert — showing alert immediately...");
+        console.log("💥 User accepted without reading & hasn't seen alert — waiting 15 seconds...");
         
-        // Show alert immediately (no countdown needed)
+        // Show alert after 15 seconds
         setTimeout(() => {
           alertBox.style.display = "flex";
-          console.log("🚨 Alert displayed!");
-        }, 1000); // 1 second delay for dramatic effect
+          console.log("🚨 Alert displayed after 15 seconds!");
+        }, 15000); // 15 seconds delay
         
       } else if (alertAlreadySeen === "true") {
         console.log("✅ User has already seen the alert — skipping.");

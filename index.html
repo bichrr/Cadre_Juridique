@@ -269,29 +269,111 @@
     }
 
     .modal-body {
-      max-height: 60vh;
-      overflow-y: auto;
       font-size: 0.95rem;
       padding: 2rem;
     }
 
-    .modal-body::-webkit-scrollbar {
+    /* Terms Preview/Full View */
+    .terms-preview {
+      background: #f8fafb;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      max-height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .terms-preview::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(transparent, #f8fafb);
+    }
+
+    .terms-full {
+      max-height: 400px;
+      overflow-y: auto;
+      background: #f8fafb;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+
+    .terms-full::-webkit-scrollbar {
       width: 8px;
     }
 
-    .modal-body::-webkit-scrollbar-thumb {
+    .terms-full::-webkit-scrollbar-thumb {
       background-color: #0a3622;
       border-radius: 4px;
     }
 
-    .modal-body p {
-      margin-bottom: 1.5rem;
+    .terms-content p {
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+    }
+
+    .terms-content strong {
+      color: #0a3622;
     }
 
     .modal-footer {
       padding: 1.5rem 2rem;
       border-top: 1px solid #e8e8e8;
       gap: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .btn-expand-terms {
+      background: #f0f0f0;
+      color: #0a3622;
+      border: 1px solid #0a3622;
+      padding: 12px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .btn-expand-terms:hover {
+      background: #e8e8e8;
+    }
+
+    .btn-accept-terms {
+      background: #0a3622;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      display: none;
+    }
+
+    .btn-accept-terms:hover:not(:disabled) {
+      background: #135d38;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(10, 54, 34, 0.3);
+    }
+
+    .btn-accept-terms:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
     }
 
     /* Responsive Design */
@@ -464,48 +546,62 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
         </div>
         <div class="modal-body">
+          <!-- Preview (collapsed by default) -->
+          <div id="termsPreview" class="terms-preview">
+            <div class="terms-content">
+              <p><strong>Article 1 — Objet</strong><br>
+              Les présentes conditions définissent les modalités d'accès au site et les règles applicables à la simulation pédagogique proposée. Elles n'ont qu'une valeur informative et ne créent pas d'obligations juridiques réelles entre les parties.</p>
 
-          <p><strong>Article 1 — Objet</strong><br>
-          Les présentes conditions définissent les modalités d'accès au site et les règles applicables à la simulation pédagogique proposée. Elles n'ont qu'une valeur informative et ne créent pas d'obligations juridiques réelles entre les parties.</p>
+              <p><strong>Article 2 — Définitions</strong><br>
+              Pour l'application des présentes : «Utilisateur» désigne toute personne accédant au site ; «Simulateur» désigne l'outil technique présent sur ce site illustrant le mécanisme des smart contracts...</p>
+            </div>
+          </div>
 
-          <p><strong>Article 2 — Définitions</strong><br>
-          Pour l'application des présentes : «Utilisateur» désigne toute personne accédant au site ; «Simulateur» désigne l'outil technique présent sur ce site illustrant le mécanisme des smart contracts ; «Contenu» désigne les textes, références et documents affichés sur le site.</p>
+          <!-- Full terms (hidden by default) -->
+          <div id="termsFull" class="terms-full">
+            <div class="terms-content">
+              <p><strong>Article 1 — Objet</strong><br>
+              Les présentes conditions définissent les modalités d'accès au site et les règles applicables à la simulation pédagogique proposée. Elles n'ont qu'une valeur informative et ne créent pas d'obligations juridiques réelles entre les parties.</p>
 
-          <p><strong>Article 3 — Formation du consentement</strong><br>
-          Conformément à l'article 23 du Code des Obligations et des Contrats (Tunisie), le contrat résulte d'une rencontre d'une offre et d'une acceptation. Le bouton «J'accepte» matérialise, dans la simulation, une manifestation de volonté ; dans un contexte juridique réel, la validité du consentement doit être appréciée au cas par cas.</p>
+              <p><strong>Article 2 — Définitions</strong><br>
+              Pour l'application des présentes : «Utilisateur» désigne toute personne accédant au site ; «Simulateur» désigne l'outil technique présent sur ce site illustrant le mécanisme des smart contracts ; «Contenu» désigne les textes, références et documents affichés sur le site.</p>
 
-          <p><strong>Article 4 — Capacité</strong><br>
-          L'utilisateur déclare avoir la capacité juridique requise pour utiliser le site. En cas d'absence de capacité (mineur, incapacité légale), toute prétendue adhésion serait susceptible d'être annulée selon les règles du droit tunisien.</p>
+              <p><strong>Article 3 — Formation du consentement</strong><br>
+              Conformément à l'article 23 du Code des Obligations et des Contrats (Tunisie), le contrat résulte d'une rencontre d'une offre et d'une acceptation. Le bouton «J'accepte» matérialise, dans la simulation, une manifestation de volonté ; dans un contexte juridique réel, la validité du consentement doit être appréciée au cas par cas.</p>
 
-          <p><strong>Article 5 — Objet et exécution</strong><br>
-          Le simulateur illustre l'exécution automatique d'obligations en fonction de conditions prédéterminées. Il ne constitue pas une mise en œuvre d'obligations de droit réel ; la matérialisation d'effets juridiques nécessite, en droit, des éléments plus exigeants (prestation, consentement éclairé, identité des parties).</p>
+              <p><strong>Article 4 — Capacité</strong><br>
+              L'utilisateur déclare avoir la capacité juridique requise pour utiliser le site. En cas d'absence de capacité (mineur, incapacité légale), toute prétendue adhésion serait susceptible d'être annulée selon les règles du droit tunisien.</p>
 
-          <p><strong>Article 6 — Effet obligatoire</strong><br>
-          Les conventions légalement formées tiennent lieu de loi entre les parties. Pour être opposables, les conventions doivent satisfaire aux conditions de validité (capacité, consentement, objet, cause) énoncées dans le Code des Obligations et des Contrats.</p>
+              <p><strong>Article 5 — Objet et exécution</strong><br>
+              Le simulateur illustre l'exécution automatique d'obligations en fonction de conditions prédéterminées. Il ne constitue pas une mise en œuvre d'obligations de droit réel ; la matérialisation d'effets juridiques nécessite, en droit, des éléments plus exigeants (prestation, consentement éclairé, identité des parties).</p>
 
-          <p><strong>Article 7 bis — Obligation morale de café</strong><br>
-          Tout utilisateur reconnaît l'importance de la pause-café pour le bon fonctionnement du groupe. En conséquence, chaque acceptation emporte une obligation morale de contribuer à la prochaine tournée de café ou de thé, selon disponibilité des ressources énergétiques du local.</p>
+              <p><strong>Article 6 — Effet obligatoire</strong><br>
+              Les conventions légalement formées tiennent lieu de loi entre les parties. Pour être opposables, les conventions doivent satisfaire aux conditions de validité (capacité, consentement, objet, cause) énoncées dans le Code des Obligations et des Contrats.</p>
 
-          <p><strong>Article 8 — Données personnelles</strong><br>
-          Le fonctionnement de cette démonstration n'implique pas le traitement systématique de données personnelles. Si des données venaient à être collectées à des fins pédagogiques, elles seraient traitées conformément aux principes applicables en matière de protection des données à caractère personnel et supprimées après usage.</p>
+              <p><strong>Article 7 bis — Obligation morale de café</strong><br>
+              Tout utilisateur reconnaît l'importance de la pause-café pour le bon fonctionnement du groupe. En conséquence, chaque acceptation emporte une obligation morale de contribuer à la prochaine tournée de café ou de thé, selon disponibilité des ressources énergétiques du local.</p>
 
-          <p><strong>Article 9 bis — Consentement implicite à la bonne humeur</strong><br>
-          L'acceptation des présentes vaut adhésion à un principe général de bonne humeur et de courtoisie. Le non-respect répété de cette clause peut entraîner une résiliation symbolique du contrat moral d'équipe.</p>
+              <p><strong>Article 8 — Données personnelles</strong><br>
+              Le fonctionnement de cette démonstration n'implique pas le traitement systématique de données personnelles. Si des données venaient à être collectées à des fins pédagogiques, elles seraient traitées conformément aux principes applicables en matière de protection des données à caractère personnel et supprimées après usage.</p>
 
-          <p><strong>Article 10 — Force majeure</strong><br>
-          Aucune partie ne sera tenue responsable des manquements résultant d'un cas de force majeure au sens du droit applicable (événements imprévisibles, irrésistibles et extérieurs). Les conséquences éventuelles sont réglées conformément aux principes du droit tunisien.</p>
+              <p><strong>Article 9 bis — Consentement implicite à la bonne humeur</strong><br>
+              L'acceptation des présentes vaut adhésion à un principe général de bonne humeur et de courtoisie. Le non-respect répété de cette clause peut entraîner une résiliation symbolique du contrat moral d'équipe.</p>
 
-          <p><strong>Article 11 bis — Cession de droits pédagogiques</strong><br>
-          En cochant « J'accepte », l'utilisateur autorise temporairement l'enseignant à utiliser son étonnement comme illustration pratique de l'importance de lire les conditions générales avant de valider un contrat.</p>
+              <p><strong>Article 10 — Force majeure</strong><br>
+              Aucune partie ne sera tenue responsable des manquements résultant d'un cas de force majeure au sens du droit applicable (événements imprévisibles, irrésistibles et extérieurs). Les conséquences éventuelles sont réglées conformément aux principes du droit tunisien.</p>
 
-          <p><strong>Article 12 — Dispositions finales</strong><br>
-          Toute question liée à l'interprétation ou à l'application pratique des notions présentées doit être adressée à un juriste qualifié. Les présentes conditions peuvent être mises à jour pour tenir compte des évolutions légales et techniques ; l'utilisateur est invité à consulter périodiquement la version en ligne.</p>
+              <p><strong>Article 11 bis — Cession de droits pédagogiques</strong><br>
+              En cochant « J'accepte », l'utilisateur autorise temporairement l'enseignant à utiliser son étonnement comme illustration pratique de l'importance de lire les conditions générales avant de valider un contrat.</p>
 
+              <p><strong>Article 12 — Dispositions finales</strong><br>
+              Toute question liée à l'interprétation ou à l'application pratique des notions présentées doit être adressée à un juriste qualifié. Les présentes conditions peuvent être mises à jour pour tenir compte des évolutions légales et techniques ; l'utilisateur est invité à consulter périodiquement la version en ligne.</p>
+            </div>
+          </div>
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-success px-4" onclick="acceptWithoutReading()">J'accepte</button>
-          <button type="button" class="btn btn-outline-success px-4" onclick="acceptAfterReading()">J'ai lu et j'accepte</button>
+          <button type="button" class="btn-expand-terms" id="expandTermsBtn">📖 Lire les termes complets</button>
+          <button type="button" class="btn-accept-terms" id="acceptTermsBtn">✓ J'accepte les termes</button>
         </div>
       </div>
     </div>
@@ -523,7 +619,7 @@
       }
     });
 
-    // ✅ Helper function to read cookies
+    // Helper function to read cookies
     function getCookie(name) {
       const cookies = document.cookie.split(";").map(c => c.trim());
       for (const c of cookies) {
@@ -534,7 +630,7 @@
       return null;
     }
 
-    // ✅ Helper function to set cookies
+    // Helper function to set cookies
     function setCookie(name, value, days) {
       const d = new Date();
       d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -543,23 +639,47 @@
       console.log(`🍪 Cookie set: ${cookie}`);
     }
 
-    // ⚠️ User clicked "J'accepte" WITHOUT reading the terms
-    function acceptWithoutReading() {
-      console.log("⚠️ User accepted WITHOUT reading.");
-      setCookie("acceptedWithoutReading", "true", 7);
-      setCookie("termsAccepted", "true", 7);
-      window.location.href = "lois.html";
-    }
+    // Track if user expanded the terms
+    let hasReadTerms = false;
 
-    // ✅ User clicked "J'ai lu et j'accepte" AFTER reading the terms
-    function acceptAfterReading() {
-      console.log("✅ User accepted AFTER reading.");
-      setCookie("acceptedWithoutReading", "false", 7);
-      setCookie("termsAccepted", "true", 7);
-      window.location.href = "lois.html";
-    }
+    // Expand/Collapse terms functionality
+    document.getElementById('expandTermsBtn').addEventListener('click', function() {
+      const preview = document.getElementById('termsPreview');
+      const full = document.getElementById('termsFull');
+      const acceptBtn = document.getElementById('acceptTermsBtn');
+      const expandBtn = this;
 
-    // 🎯 Main Logic - Check if user has already accepted terms
+      if (full.style.display === 'none' || full.style.display === '') {
+        // Expand the terms
+        preview.style.display = 'none';
+        full.style.display = 'block';
+        expandBtn.textContent = '📕 Réduire les termes';
+        acceptBtn.style.display = 'block';
+        hasReadTerms = true;
+        console.log("✅ User expanded terms");
+      } else {
+        // Collapse the terms
+        preview.style.display = 'block';
+        full.style.display = 'none';
+        expandBtn.textContent = '📖 Lire les termes complets';
+      }
+    });
+
+    // Accept terms button
+    document.getElementById('acceptTermsBtn').addEventListener('click', function() {
+      if (hasReadTerms) {
+        console.log("✅ User accepted AFTER reading.");
+        setCookie("acceptedWithoutReading", "false", 7);
+        setCookie("termsAccepted", "true", 7);
+      } else {
+        console.log("⚠️ User accepted WITHOUT expanding (shouldn't happen).");
+        setCookie("acceptedWithoutReading", "true", 7);
+        setCookie("termsAccepted", "true", 7);
+      }
+      window.location.href = "lois.html";
+    });
+
+    // Main Logic - Check if user has already accepted terms
     function handleCTAClick() {
       const termsAccepted = getCookie("termsAccepted");
 
@@ -568,6 +688,13 @@
         window.location.href = "lois.html";
       } else {
         console.log("⚠️ User hasn't accepted terms yet, showing modal");
+        // Reset modal state
+        document.getElementById('termsPreview').style.display = 'block';
+        document.getElementById('termsFull').style.display = 'none';
+        document.getElementById('expandTermsBtn').textContent = '📖 Lire les termes complets';
+        document.getElementById('acceptTermsBtn').style.display = 'none';
+        hasReadTerms = false;
+        
         const modal = new bootstrap.Modal(document.getElementById('termsModal'));
         modal.show();
       }

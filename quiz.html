@@ -6,67 +6,174 @@
   <title>Quiz – Droit Numérique TN</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: "Poppins", sans-serif;
-      background: #f5f7fa;
-      color: #222;
-      padding-top: 80px;
+      font-family: "Inter", "Segoe UI", -apple-system, sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    h1 {
-      text-align: center;
-      color: #135d38;
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
-
-    .quiz-container {
-      max-width: 700px;
-      margin: auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    /* Professional Navbar */
+    .navbar {
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
       transition: all 0.3s ease;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #0a3622 !important;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      color: #555 !important;
+      font-weight: 500;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #0a3622 !important;
+    }
+
+    .navbar-scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Page Header */
+    .page-header {
+      margin-top: 80px;
+      padding: 80px 0 60px;
+      background: linear-gradient(180deg, #f8fafb 0%, #ffffff 100%);
+      position: relative;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+    }
+
+    .page-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #0a3622;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+      text-align: center;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      color: #666;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Content Section */
+    .content-section {
+      padding: 60px 0 80px;
+      background: #ffffff;
+    }
+
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .quiz-card:hover {
+      border-color: #0a3622;
+      box-shadow: 0 10px 40px rgba(10, 54, 34, 0.08);
     }
 
     .quiz-question {
-      font-size: 1.2rem;
-      font-weight: 500;
+      font-size: 1.4rem;
+      font-weight: 600;
       color: #0a3622;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .question-number {
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
     }
 
     .option {
-      background: #e9f5ee;
-      border: 2px solid transparent;
+      background: #f8fafb;
+      border: 2px solid #e8e8e8;
       border-radius: 10px;
-      padding: 10px 15px;
-      margin: 8px 0;
+      padding: 1rem 1.2rem;
+      margin: 0.8rem 0;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
     .option:hover {
-      background: #d9f0e3;
+      background: #f0f4f1;
+      border-color: #c5e8d0;
+      transform: translateX(5px);
     }
 
     .option.selected {
-      border-color: #135d38;
-      background: #c5e8d0;
+      border-color: #0a3622;
+      background: #e9f5ee;
+      color: #0a3622;
+      font-weight: 500;
     }
 
     .btn-next, .btn-restart {
-      background: #135d38;
+      background: #0a3622;
       color: #fff;
       border: none;
-      padding: 10px 20px;
+      padding: 0.8rem 2rem;
       border-radius: 8px;
       font-weight: 500;
       transition: all 0.3s ease;
+      font-size: 1rem;
     }
 
     .btn-next:hover, .btn-restart:hover {
-      background: #0e482c;
+      background: #135d38;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(10, 54, 34, 0.2);
+    }
+
+    .btn-next:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
     }
 
     .result {
@@ -76,10 +183,32 @@
     }
 
     .score {
-      font-size: 1.5rem;
-      color: #135d38;
-      font-weight: bold;
+      font-size: 2.5rem;
+      color: #0a3622;
+      font-weight: 700;
       margin-bottom: 1rem;
+    }
+
+    .result-message {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 8px;
+      background: #e8e8e8;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: #0a3622;
+      transition: width 0.3s ease;
+      border-radius: 10px;
     }
 
     @keyframes fadeIn {
@@ -87,29 +216,52 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Navbar */
-    .navbar {
-      background-color: #135d38 !important;
+    /* Footer */
+    footer {
+      background: #0a3622;
+      color: white;
+      padding: 3rem 0 2rem;
+      text-align: center;
     }
 
-    .navbar-brand, .nav-link {
-      color: #fff !important;
-      font-weight: 500;
+    footer p {
+      margin: 0;
+      opacity: 0.8;
+      font-size: 0.9rem;
     }
 
-    .nav-link:hover, .nav-link.active {
-      color: #ffcc00 !important;
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .page-header p {
+        font-size: 1rem;
+      }
+
+      .quiz-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .quiz-question {
+        font-size: 1.2rem;
+      }
+
+      .score {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ NAVBAR -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="lois.html">Droit Numérique TN</a>
+  <!-- Professional Navbar -->
+  <nav class="navbar navbar-expand-lg" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="accueil.html">Droit Numérique TN</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
@@ -122,26 +274,60 @@
     </div>
   </nav>
 
-  <!-- 🧠 QUIZ SECTION -->
-  <div class="container">
-    <h1>Quiz – Droit Numérique & Smart Contracts</h1>
-    <div class="quiz-container">
-      <div id="quiz">
-        <p class="quiz-question" id="question"></p>
-        <div id="options" class="mt-3"></div>
-        <div class="d-flex justify-content-end mt-4">
-          <button class="btn-next" id="nextBtn">Suivant</button>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Quiz Interactif</h1>
+      <p>Testez vos connaissances en droit numérique tunisien et smart contracts</p>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section">
+    <div class="container">
+      <div class="quiz-card" id="quizCard">
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+        
+        <div id="quiz">
+          <p class="question-number" id="questionNumber"></p>
+          <p class="quiz-question" id="question"></p>
+          <div id="options" class="mt-3"></div>
+          <div class="d-flex justify-content-end mt-4">
+            <button class="btn-next" id="nextBtn">Suivant</button>
+          </div>
+        </div>
+        
+        <div class="result" id="result">
+          <p class="score" id="score"></p>
+          <p class="result-message" id="message"></p>
+          <button class="btn-restart" id="restartBtn">Recommencer le Quiz</button>
         </div>
       </div>
-      <div class="result" id="result">
-        <p class="score" id="score"></p>
-        <p id="message"></p>
-        <button class="btn-restart mt-3" id="restartBtn">Recommencer</button>
-      </div>
     </div>
-  </div>
+  </section>
 
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Droit Numérique Tunisien. Plateforme éducative.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('mainNav');
+      if (window.scrollY > 50) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    });
+
+    // Quiz Data
     const quizData = [
       {
         question: "Quelle loi encadre le commerce électronique en Tunisie ?",
@@ -172,7 +358,7 @@
         question: "Les smart contracts sont considérés comme :",
         options: [
           "Des contrats sans valeur juridique",
-          "Une exécution automatisée d’un contrat classique",
+          "Une exécution automatisée d'un contrat classique",
           "Des programmes autonomes sans contrôle humain",
           "Une forme de contrat papier"
         ],
@@ -183,13 +369,13 @@
         options: [
           "Loi n°2004-63 du 27 juillet 2004",
           "Loi n°2016-15 sur la cybersécurité",
-          "Loi sur la liberté d’information",
+          "Loi sur la liberté d'information",
           "Règlement RGPD européen"
         ],
         answer: 0
       },
       {
-        question: "Quelle condition n’est PAS nécessaire pour un contrat valide ?",
+        question: "Quelle condition n'est PAS nécessaire pour un contrat valide ?",
         options: [
           "Consentement",
           "Objet",
@@ -201,7 +387,7 @@
       {
         question: "Quelle technologie permet la mise en œuvre des smart contracts ?",
         options: [
-          "L’intelligence artificielle",
+          "L'intelligence artificielle",
           "La blockchain",
           "Le cloud computing",
           "Les bases de données SQL"
@@ -209,7 +395,7 @@
         answer: 1
       },
       {
-        question: "La Tunisie s’inspire notamment du DLT Act de quel pays ?",
+        question: "La Tunisie s'inspire notamment du DLT Act de quel pays ?",
         options: ["Suisse", "France", "USA", "Allemagne"],
         answer: 0
       }
@@ -219,6 +405,7 @@
     let score = 0;
 
     const questionEl = document.getElementById("question");
+    const questionNumberEl = document.getElementById("questionNumber");
     const optionsEl = document.getElementById("options");
     const nextBtn = document.getElementById("nextBtn");
     const resultEl = document.getElementById("result");
@@ -226,11 +413,19 @@
     const scoreEl = document.getElementById("score");
     const messageEl = document.getElementById("message");
     const restartBtn = document.getElementById("restartBtn");
+    const progressBar = document.getElementById("progressBar");
+
+    function updateProgressBar() {
+      const progress = ((currentQuestion + 1) / quizData.length) * 100;
+      progressBar.style.width = progress + '%';
+    }
 
     function loadQuestion() {
       const q = quizData[currentQuestion];
+      questionNumberEl.textContent = `Question ${currentQuestion + 1} sur ${quizData.length}`;
       questionEl.textContent = q.question;
       optionsEl.innerHTML = "";
+      
       q.options.forEach((option, index) => {
         const div = document.createElement("div");
         div.classList.add("option");
@@ -238,6 +433,8 @@
         div.addEventListener("click", () => selectOption(div, index));
         optionsEl.appendChild(div);
       });
+      
+      updateProgressBar();
     }
 
     function selectOption(div, index) {
@@ -248,10 +445,13 @@
 
     nextBtn.addEventListener("click", () => {
       const selected = document.querySelector(".option.selected");
-      if (!selected) return alert("Sélectionnez une réponse !");
+      if (!selected) return alert("Veuillez sélectionner une réponse !");
+      
       const answerIndex = parseInt(selected.dataset.selected);
       if (answerIndex === quizData[currentQuestion].answer) score++;
+      
       currentQuestion++;
+      
       if (currentQuestion < quizData.length) {
         loadQuestion();
       } else {
@@ -262,13 +462,16 @@
     function showResult() {
       quizEl.style.display = "none";
       resultEl.style.display = "block";
-      scoreEl.textContent = `Votre score : ${score} / ${quizData.length}`;
+      progressBar.style.width = '100%';
+      
+      scoreEl.textContent = `${score} / ${quizData.length}`;
+      
       if (score >= quizData.length * 0.8) {
-        messageEl.textContent = "🌟 Excellent travail ! Vous maîtrisez le sujet.";
+        messageEl.textContent = "🌟 Excellent travail ! Vous maîtrisez parfaitement le sujet.";
       } else if (score >= quizData.length * 0.5) {
-        messageEl.textContent = "🙂 Pas mal ! Revoyez quelques notions.";
+        messageEl.textContent = "👍 Bon résultat ! Revoyez quelques notions pour parfaire vos connaissances.";
       } else {
-        messageEl.textContent = "😅 Il est temps de relire les lois et contrats électroniques !";
+        messageEl.textContent = "📚 Continuez vos efforts ! Relisez les sections sur les lois et contrats électroniques.";
       }
     }
 
@@ -280,7 +483,7 @@
       loadQuestion();
     });
 
-    // Init
+    // Initialize quiz
     loadQuestion();
   </script>
 </body>

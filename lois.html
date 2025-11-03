@@ -416,11 +416,10 @@
       if (acceptedWithoutReading === "true" && alertAlreadySeen !== "true") {
         console.log("💥 User accepted without reading & hasn't seen alert — waiting 15 seconds...");
         
-        // Show alert after 15 seconds
         setTimeout(() => {
           alertBox.style.display = "flex";
-          console.log("🚨 Alert displayed after 15 seconds!");
-        }, 15000); // 15 seconds delay
+          console.log("🚨 Alert displayed after 9 seconds!");
+        }, 9000); 
         
       } else if (alertAlreadySeen === "true") {
         console.log("✅ User has already seen the alert — skipping.");

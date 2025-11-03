@@ -412,23 +412,16 @@
       console.log("📥 Cookie 'alertAlreadySeen':", alertAlreadySeen);
       
       const alertBox = document.getElementById("alertBox");
-      const countdownSpan = document.getElementById("countdown");
 
       if (acceptedWithoutReading === "true" && alertAlreadySeen !== "true") {
-        console.log("💥 User accepted without reading & hasn't seen alert — starting countdown...");
+        console.log("💥 User accepted without reading & hasn't seen alert — showing alert immediately...");
         
-        let counter = 5;
-        const timer = setInterval(() => {
-          countdownSpan.textContent = counter;
-          console.log(`⏳ Countdown: ${counter}s`);
-          counter--;
-          
-          if (counter < 0) {
-            clearInterval(timer);
-            alertBox.style.display = "flex";
-            console.log("🚨 Alert displayed!");
-          }
-        }, 1000);
+        // Show alert immediately (no countdown needed)
+        setTimeout(() => {
+          alertBox.style.display = "flex";
+          console.log("🚨 Alert displayed!");
+        }, 1000); // 1 second delay for dramatic effect
+        
       } else if (alertAlreadySeen === "true") {
         console.log("✅ User has already seen the alert — skipping.");
       } else if (acceptedWithoutReading === "false") {

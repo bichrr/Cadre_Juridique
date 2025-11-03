@@ -3,138 +3,742 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Conditions d’utilisation</title>
+  <title>Droit Numérique Tunisien - Plateforme Juridique</title>
 
-  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "Inter", "Segoe UI", sans-serif;
+      font-family: "Inter", "Segoe UI", -apple-system, sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
+    /* Professional Navbar */
+    .navbar {
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #0a3622 !important;
+      letter-spacing: -0.5px;
+    }
+
+    .navbar-scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      margin-top: 80px;
+      padding: 100px 0 80px;
+      background: linear-gradient(180deg, #f8fafb 0%, #ffffff 100%);
+      position: relative;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #0a3622;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+    }
+
+    .hero-content .lead {
+      font-size: 1.3rem;
+      color: #555;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+      max-width: 650px;
+    }
+
+    .cta-primary {
+      background: #0a3622;
+      color: white;
       border: none;
-      border-radius: 20px;
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-      text-align: center;
-      padding: 2rem;
-      width: 90%;
-      max-width: 380px;
+      padding: 16px 40px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(10, 54, 34, 0.2);
     }
 
-    .btn {
-      border-radius: 10px;
+    .cta-primary:hover {
+      background: #135d38;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(10, 54, 34, 0.3);
+    }
+
+    /* Stats Section */
+    .stats-section {
+      padding: 60px 0;
+      background: white;
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0a3622;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       font-weight: 500;
     }
 
-    .modal-content {
-      border-radius: 15px;
-      background-color: #ffffffee;
-      backdrop-filter: blur(5px);
+    /* Features Section */
+    .features-section {
+      padding: 100px 0;
+      background: #ffffff;
     }
 
-    .modal-body {
-      max-height: 65vh;
-      overflow-y: auto;
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0a3622;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .feature-card:hover {
+      border-color: #0a3622;
+      box-shadow: 0 10px 40px rgba(10, 54, 34, 0.08);
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #0a3622, #135d38);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    .feature-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card p {
+      color: #666;
       font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0;
     }
 
-    .modal-body::-webkit-scrollbar {
-      width: 6px;
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #0a3622, #135d38);
+      color: white;
+      text-align: center;
     }
 
-    .modal-body::-webkit-scrollbar-thumb {
-      background-color: #aaa;
-      border-radius: 4px;
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
     }
 
-    strong {
-      color: #1a237e;
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+
+    .cta-secondary {
+      background: white;
+      color: #0a3622;
+      border: none;
+      padding: 16px 40px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cta-secondary:hover {
+      background: #f8f8f8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Footer */
+    footer {
+      background: #0a3622;
+      color: white;
+      padding: 3rem 0 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    /* Modal Styling */
+    .modal-content {
+      border-radius: 16px;
+      border: none;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      background: #0a3622;
+      color: white;
+      padding: 1.5rem 2rem;
+      border: none;
     }
 
     .modal-title {
-      color: #0d47a1;
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+
+    .btn-close {
+      filter: invert(1);
+    }
+
+    .modal-body {
+      font-size: 0.95rem;
+      padding: 2rem;
+    }
+
+    /* Terms Preview/Full View */
+    .terms-preview {
+      background: #f8fafb;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      max-height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .terms-preview::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(transparent, #f8fafb);
+    }
+
+    .terms-full {
+      max-height: 400px;
+      overflow-y: auto;
+      background: #f8fafb;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+
+    .terms-full::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .terms-full::-webkit-scrollbar-thumb {
+      background-color: #0a3622;
+      border-radius: 4px;
+    }
+
+    .terms-content p {
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+    }
+
+    .terms-content strong {
+      color: #0a3622;
+    }
+
+    .modal-footer {
+      padding: 1.5rem 2rem;
+      border-top: 1px solid #e8e8e8;
+      gap: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .btn-expand-terms {
+      background: #f0f0f0;
+      color: #0a3622;
+      border: 1px solid #0a3622;
+      padding: 12px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex: 1;
+    }
+
+    .btn-expand-terms:hover {
+      background: #e8e8e8;
+    }
+
+    .btn-accept-quick {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 12px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex: 1;
+    }
+
+    .btn-accept-quick:hover {
+      background: #218838;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+    }
+
+    .btn-accept-after-reading {
+      background: #0a3622;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      display: none;
+    }
+
+    .btn-accept-after-reading:hover {
+      background: #135d38;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(10, 54, 34, 0.3);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-content .lead {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+
+      .feature-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .modal-footer {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h4 class="mb-3 fw-semibold">Acceptez-vous les conditions ?</h4>
-    <div class="d-flex justify-content-center gap-3 mt-3">
-      <button class="btn btn-success px-4" onclick="acceptTerms()">J’accepte</button>
-      <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#termsModal">Lire</button>
-    </div>
-  </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <!-- Professional Navbar -->
+  <nav class="navbar navbar-expand-lg" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#">Droit Numérique TN</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <div class="hero-content">
+            <h1>Le droit numérique tunisien à portée de clic</h1>
+            <p class="lead">
+              Explorez le cadre juridique des contrats électroniques et des smart contracts en Tunisie. 
+              Une plateforme professionnelle pour comprendre la législation dans l'ère numérique.
+            </p>
+            <button class="cta-primary" id="startBtn">Accéder à la plateforme</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-6">
+          <div class="stat-item">
+            <div class="stat-number">2000</div>
+            <div class="stat-label">Loi n°2000-83</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Validité Juridique</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-item">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Modules</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Accessible</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">Modules de formation</h2>
+        <p class="section-subtitle">
+          Découvrez notre contenu structuré pour maîtriser les aspects juridiques du numérique
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">📜</div>
+            <h3>Législation tunisienne</h3>
+            <p>
+              Analysez en détail la loi n°2000-83 relative aux échanges et au commerce électroniques, 
+              ainsi que les dispositions du Code des Obligations et des Contrats applicables au numérique.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">💼</div>
+            <h3>Contrats électroniques</h3>
+            <p>
+              Comprenez les conditions de formation, de validité et la force probante des contrats conclus 
+              par voie électronique selon le droit tunisien.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Smart contracts</h3>
+            <p>
+              Explorez l'intégration des contrats intelligents dans le système juridique tunisien 
+              et leurs implications pratiques pour l'avenir du droit.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">✓</div>
+            <h3>Quiz d'évaluation</h3>
+            <p>
+              Testez vos connaissances acquises avec notre quiz interactif et obtenez une évaluation 
+              de votre compréhension des concepts juridiques.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Prêt à commencer ?</h2>
+      <p>Accédez immédiatement à l'ensemble de nos ressources juridiques</p>
+      <button class="cta-secondary" id="ctaBtn">Commencer maintenant</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Droit Numérique Tunisien. Plateforme éducative.</p>
+    </div>
+  </footer>
+
+  <!-- Modal for Terms & Conditions -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fw-semibold" id="termsModalLabel">Conditions Générales d’Utilisation</h5>
+          <h5 class="modal-title" id="termsModalLabel">Conditions Générales d'Utilisation</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
         </div>
-        <div class="modal-body text-start">
+        <div class="modal-body">
+          <!-- Preview (collapsed by default) -->
+          <div id="termsPreview" class="terms-preview">
+            <div class="terms-content">
+              <p><strong>Article 1 — Objet</strong><br>
+              Les présentes conditions définissent les modalités d'accès au site et les règles applicables à la simulation pédagogique proposée. Elles n'ont qu'une valeur informative et ne créent pas d'obligations juridiques réelles entre les parties.</p>
 
-  <p><strong>Article 1 — Objet</strong><br>
-  Les présentes conditions définissent les modalités d'accès au site et les règles applicables à la simulation pédagogique proposée. Elles n'ont qu'une valeur informative et ne créent pas d'obligations juridiques réelles entre les parties.</p>
+              <p><strong>Article 2 — Définitions</strong><br>
+              Pour l'application des présentes : «Utilisateur» désigne toute personne accédant au site ; «Simulateur» désigne l'outil technique présent sur ce site illustrant le mécanisme des smart contracts...</p>
+            </div>
+          </div>
 
-  <p><strong>Article 2 — Définitions</strong><br>
-  Pour l'application des présentes : «Utilisateur» désigne toute personne accédant au site ; «Simulateur» désigne l'outil technique présent sur ce site illustrant le mécanisme des smart contracts ; «Contenu» désigne les textes, références et documents affichés sur le site.</p>
+          <!-- Full terms (hidden by default) -->
+          <div id="termsFull" class="terms-full">
+            <div class="terms-content">
+              <p><strong>Article 1 — Objet</strong><br>
+              Les présentes conditions définissent les modalités d'accès au site et les règles applicables à la simulation pédagogique proposée. Elles n'ont qu'une valeur informative et ne créent pas d'obligations juridiques réelles entre les parties.</p>
 
-  <p><strong>Article 3 — Formation du consentement</strong><br>
-  Conformément à l'article 23 du Code des Obligations et des Contrats (Tunisie), le contrat résulte d'une rencontre d'une offre et d'une acceptation. Le bouton «J’accepte» matérialise, dans la simulation, une manifestation de volonté ; dans un contexte juridique réel, la validité du consentement doit être appréciée au cas par cas.</p>
+              <p><strong>Article 2 — Définitions</strong><br>
+              Pour l'application des présentes : «Utilisateur» désigne toute personne accédant au site ; «Simulateur» désigne l'outil technique présent sur ce site illustrant le mécanisme des smart contracts ; «Contenu» désigne les textes, références et documents affichés sur le site.</p>
 
-  <p><strong>Article 4 — Capacité</strong><br>
-  L'utilisateur déclare avoir la capacité juridique requise pour utiliser le site. En cas d'absence de capacité (mineur, incapacité légale), toute prétendue adhésion serait susceptible d'être annulée selon les règles du droit tunisien.</p>
+              <p><strong>Article 3 — Formation du consentement</strong><br>
+              Conformément à l'article 23 du Code des Obligations et des Contrats (Tunisie), le contrat résulte d'une rencontre d'une offre et d'une acceptation. Le bouton «J'accepte» matérialise, dans la simulation, une manifestation de volonté ; dans un contexte juridique réel, la validité du consentement doit être appréciée au cas par cas.</p>
 
-  <p><strong>Article 5 — Objet et exécution</strong><br>
-  Le simulateur illustre l'exécution automatique d'obligations en fonction de conditions prédéterminées. Il ne constitue pas une mise en œuvre d'obligations de droit réel ; la matérialisation d'effets juridiques nécessite, en droit, des éléments plus exigeants (prestation, consentement éclairé, identité des parties).</p>
+              <p><strong>Article 4 — Capacité</strong><br>
+              L'utilisateur déclare avoir la capacité juridique requise pour utiliser le site. En cas d'absence de capacité (mineur, incapacité légale), toute prétendue adhésion serait susceptible d'être annulée selon les règles du droit tunisien.</p>
 
-  <p><strong>Article 6 — Effet obligatoire</strong><br>
-  Les conventions légalement formées tiennent lieu de loi entre les parties. Pour être opposables, les conventions doivent satisfaire aux conditions de validité (capacité, consentement, objet, cause) énoncées dans le Code des Obligations et des Contrats.</p>
+              <p><strong>Article 5 — Objet et exécution</strong><br>
+              Le simulateur illustre l'exécution automatique d'obligations en fonction de conditions prédéterminées. Il ne constitue pas une mise en œuvre d'obligations de droit réel ; la matérialisation d'effets juridiques nécessite, en droit, des éléments plus exigeants (prestation, consentement éclairé, identité des parties).</p>
 
- <p><strong>Article 7 bis — Obligation morale de café</strong><br>
-Tout utilisateur reconnaît l’importance de la pause-café pour le bon fonctionnement du groupe. En conséquence, chaque acceptation emporte une obligation morale de contribuer à la prochaine tournée de café ou de thé, selon disponibilité des ressources énergétiques du local.</p>
+              <p><strong>Article 6 — Effet obligatoire</strong><br>
+              Les conventions légalement formées tiennent lieu de loi entre les parties. Pour être opposables, les conventions doivent satisfaire aux conditions de validité (capacité, consentement, objet, cause) énoncées dans le Code des Obligations et des Contrats.</p>
 
-  <p><strong>Article 8 — Données personnelles</strong><br>
-  Le fonctionnement de cette démonstration n'implique pas le traitement systématique de données personnelles. Si des données venaient à être collectées à des fins pédagogiques, elles seraient traitées conformément aux principes applicables en matière de protection des données à caractère personnel et supprimées après usage.</p>
+              <p><strong>Article 7 bis — Obligation morale de café</strong><br>
+              Tout utilisateur reconnaît l'importance de la pause-café pour le bon fonctionnement du groupe. En conséquence, chaque acceptation emporte une obligation morale de contribuer à la prochaine tournée de café ou de thé, selon disponibilité des ressources énergétiques du local.</p>
 
-  <p><strong>Article 9 bis — Consentement implicite à la bonne humeur</strong><br>
-L’acceptation des présentes vaut adhésion à un principe général de bonne humeur et de courtoisie. Le non-respect répété de cette clause peut entraîner une résiliation symbolique du contrat moral d’équipe.</p>
+              <p><strong>Article 8 — Données personnelles</strong><br>
+              Le fonctionnement de cette démonstration n'implique pas le traitement systématique de données personnelles. Si des données venaient à être collectées à des fins pédagogiques, elles seraient traitées conformément aux principes applicables en matière de protection des données à caractère personnel et supprimées après usage.</p>
 
-  <p><strong>Article 10 — Force majeure</strong><br>
-  Aucune partie ne sera tenue responsable des manquements résultant d'un cas de force majeure au sens du droit applicable (événements imprévisibles, irrésistibles et extérieurs). Les conséquences éventuelles sont réglées conformément aux principes du droit tunisien.</p>
+              <p><strong>Article 9 bis — Consentement implicite à la bonne humeur</strong><br>
+              L'acceptation des présentes vaut adhésion à un principe général de bonne humeur et de courtoisie. Le non-respect répété de cette clause peut entraîner une résiliation symbolique du contrat moral d'équipe.</p>
 
-  <p><strong>Article 11 bis — Cession de droits pédagogiques</strong><br>
-En cochant « J’accepte », l’utilisateur autorise temporairement l’enseignant à utiliser son étonnement comme illustration pratique de l’importance de lire les conditions générales avant de valider un contrat.</p>
+              <p><strong>Article 10 — Force majeure</strong><br>
+              Aucune partie ne sera tenue responsable des manquements résultant d'un cas de force majeure au sens du droit applicable (événements imprévisibles, irrésistibles et extérieurs). Les conséquences éventuelles sont réglées conformément aux principes du droit tunisien.</p>
 
-  <p><strong>Article 12 — Dispositions finales</strong><br>
-  Toute question liée à l'interprétation ou à l'application pratique des notions présentées doit être adressée à un juriste qualifié. Les présentes conditions peuvent être mises à jour pour tenir compte des évolutions légales et techniques ; l'utilisateur est invité à consulter périodiquement la version en ligne.</p>
+              <p><strong>Article 11 bis — Cession de droits pédagogiques</strong><br>
+              En cochant « J'accepte », l'utilisateur autorise temporairement l'enseignant à utiliser son étonnement comme illustration pratique de l'importance de lire les conditions générales avant de valider un contrat.</p>
 
-</div>
+              <p><strong>Article 12 — Dispositions finales</strong><br>
+              Toute question liée à l'interprétation ou à l'application pratique des notions présentées doit être adressée à un juriste qualifié. Les présentes conditions peuvent être mises à jour pour tenir compte des évolutions légales et techniques ; l'utilisateur est invité à consulter périodiquement la version en ligne.</p>
+            </div>
+          </div>
+        </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-          <button type="button" class="btn btn-success" onclick="acceptTerms()">J’accepte</button>
+        <div class="modal-footer" id="modalFooterInitial">
+          <button type="button" class="btn-accept-quick" id="acceptQuickBtn">J'accepte</button>
+          <button type="button" class="btn-expand-terms" id="expandTermsBtn">📖 Lire les termes complets</button>
+        </div>
+
+        <div class="modal-footer" id="modalFooterAfterReading" style="display: none;">
+          <button type="button" class="btn-accept-after-reading" id="acceptAfterReadingBtn">✓ J'accepte les termes</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    function acceptTerms() {
-      window.location.href = "lois.html";
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('mainNav');
+      if (window.scrollY > 50) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    });
+
+    // Helper function to read cookies
+    function getCookie(name) {
+      const cookies = document.cookie.split(";").map(c => c.trim());
+      for (const c of cookies) {
+        if (c.startsWith(name + "=")) {
+          return c.split("=")[1];
+        }
+      }
+      return null;
     }
+
+    // Helper function to set cookies
+    function setCookie(name, value, days) {
+      const d = new Date();
+      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+      const cookie = `${name}=${value}; expires=${d.toUTCString()}; path=/; SameSite=Lax`;
+      document.cookie = cookie;
+      console.log(`🍪 Cookie set: ${cookie}`);
+    }
+
+    // Track if user expanded the terms
+    let hasReadTerms = false;
+
+    // Accept WITHOUT reading (quick accept button)
+    document.getElementById('acceptQuickBtn').addEventListener('click', function() {
+      console.log("⚠️ User accepted WITHOUT reading.");
+      setCookie("acceptedWithoutReading", "true", 7);
+      setCookie("termsAccepted", "true", 7);
+      window.location.href = "lois.html";
+    });
+
+    // Expand/Collapse terms functionality
+    document.getElementById('expandTermsBtn').addEventListener('click', function() {
+      const preview = document.getElementById('termsPreview');
+      const full = document.getElementById('termsFull');
+      const footerInitial = document.getElementById('modalFooterInitial');
+      const footerAfterReading = document.getElementById('modalFooterAfterReading');
+      const expandBtn = this;
+
+      if (full.style.display === 'none' || full.style.display === '') {
+        // Expand the terms - user is now reading
+        preview.style.display = 'none';
+        full.style.display = 'block';
+        expandBtn.textContent = '📕 Réduire les termes';
+        
+        // Switch footer to show "accept after reading" button
+        footerInitial.style.display = 'none';
+        footerAfterReading.style.display = 'flex';
+        
+        hasReadTerms = true;
+        console.log("✅ User expanded terms to read them");
+      } else {
+        // Collapse the terms
+        preview.style.display = 'block';
+        full.style.display = 'none';
+        expandBtn.textContent = '📖 Lire les termes complets';
+        
+        // Switch back to initial footer
+        footerInitial.style.display = 'flex';
+        footerAfterReading.style.display = 'none';
+      }
+    });
+
+    // Accept AFTER reading the full terms
+    document.getElementById('acceptAfterReadingBtn').addEventListener('click', function() {
+      console.log("✅ User accepted AFTER reading the full terms.");
+      setCookie("acceptedWithoutReading", "false", 7);
+      setCookie("termsAccepted", "true", 7);
+      window.location.href = "lois.html";
+    });
+
+    // Main Logic - Check if user has already accepted terms
+    function handleCTAClick() {
+      const termsAccepted = getCookie("termsAccepted");
+
+      if (termsAccepted === "true") {
+        console.log("✅ User has already accepted terms, redirecting to lois.html");
+        window.location.href = "lois.html";
+      } else {
+        console.log("⚠️ User hasn't accepted terms yet, showing modal");
+        // Reset modal state
+        document.getElementById('termsPreview').style.display = 'block';
+        document.getElementById('termsFull').style.display = 'none';
+        document.getElementById('expandTermsBtn').textContent = '📖 Lire les termes complets';
+        document.getElementById('modalFooterInitial').style.display = 'flex';
+        document.getElementById('modalFooterAfterReading').style.display = 'none';
+        hasReadTerms = false;
+        
+        const modal = new bootstrap.Modal(document.getElementById('termsModal'));
+        modal.show();
+      }
+    }
+
+    // Attach event listeners to both CTA buttons
+    document.getElementById("startBtn").addEventListener("click", handleCTAClick);
+    document.getElementById("ctaBtn").addEventListener("click", handleCTAClick);
+
+    // Debug: Show current cookies
+    console.log("🔍 Cookies on page load:", document.cookie);
   </script>
 </body>
 </html>

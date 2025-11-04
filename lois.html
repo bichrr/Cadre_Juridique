@@ -363,7 +363,7 @@
   <!-- Smart Contract Alert -->
   <div class="alert-overlay" id="alertBox">
     <div class="alert-box">
-      <h2>🤖 Smart Contract activé !</h2>
+      <h2>🤖 ATTENTION ATTENTION !</h2>
       <p>Vous avez accepté sans lire — me voilà propriétaire de votre café ☕ !</p>
       <p>Votre âme numérique est désormais stockée sur la blockchain (ou presque 😅).</p>
       <p><small>Astuce juridique : toujours lire les conditions avant d'accepter ! (Article 1, Loi 2000-83)</small></p>
@@ -414,12 +414,12 @@
       const alertBox = document.getElementById("alertBox");
 
       if (acceptedWithoutReading === "true" && alertAlreadySeen !== "true") {
-        console.log("💥 User accepted without reading & hasn't seen alert — waiting 15 seconds...");
+        console.log("💥 User accepted without reading & hasn't seen alert — waiting 4 seconds...");
         
         setTimeout(() => {
           alertBox.style.display = "flex";
-          console.log("🚨 Alert displayed after 9 seconds!");
-        }, 9000); 
+          console.log("🚨 Alert displayed after 4 seconds!");
+        }, 4000); 
         
       } else if (alertAlreadySeen === "true") {
         console.log("✅ User has already seen the alert — skipping.");
